@@ -1,169 +1,99 @@
-/* Reset & base */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Voucher - NetConnect 2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login-container">
+
+    <!-- LOGO -->
+    <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
+
+    <!-- NAMA KELOMPOK -->
+    <h2>NetConnect 2</h2>
+
+    <!-- SUBTITLE -->
+    <p class="subtitle">
+        NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
+    </p>
+
+    <!-- INFO PAYMENT & CS -->
+    <div class="info-box">
+        <p><strong>Payment Gateway:</strong><br>
+        Dana | OVO | GoPay | QRIS</p>
+        <p><strong>CS:</strong> <a href="https://wa.me/6287744797924" target="_blank">+62 877 4479 7924 (WhatsApp)</a><br>
+        Email: <a href="mailto:netconnect2@example.com">netconnect2@example.com</a></p>
+    </div>
+
+    <!-- FORM LOGIN -->
+    <form>
+        <div class="form-group">
+            <label>Kode Voucher</label>
+            <input type="text" placeholder="Masukkan kode voucher" required>
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" placeholder="Masukkan username" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Masukkan password" required>
+        </div>
+
+        <button type="submit" class="btn-login">Login</button>
+        <button type="reset" class="btn-reset">Reset</button>
+        <span class="lupa-password"><a href="#">Lupa Password?</a></span>
+
+        <!-- VOUCHER & MEMBER -->
+        <div style="display:flex; justify-content:space-between; gap:10px; margin-top:20px;">
+            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="showVoucher()">
+                Voucher
+            </div>
+            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="showMember()">
+                Member
+            </div>
+        </div>
+
+        <!-- TABEL HARGA VOUCHER -->
+        <h3 style="margin-top:20px;">Harga Voucher</h3>
+        <table class="voucher-table">
+            <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
+            <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
+            <tr onclick="beliVoucher('3 Jam','7.000')"><td>3 Jam</td><td>Rp 7.000</td></tr>
+            <tr onclick="beliVoucher('6 Jam','12.000')"><td>6 Jam</td><td>Rp 12.000</td></tr>
+            <tr onclick="beliVoucher('1 Hari','15.000')"><td>1 Hari</td><td>Rp 15.000</td></tr>
+        </table>
+
+    </form>
+
+    <div class="footer">
+        &copy; 2026 NetConnect 2. All Rights Reserved.
+    </div>
+
+</div>
+
+<script>
+// Fungsi beli voucher via WA CS
+function beliVoucher(paket, harga) {
+    const waNumber = '6287744797924';
+    const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-body {
-    background-color: #ffffff;
-    color: #111111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 15px;
+// Fungsi tampilkan kode voucher
+function showVoucher() {
+    alert("Kode Voucher: ABCD-1234");
 }
 
-/* Container utama */
-.container {
-    max-width: 450px;
-    width: 100%;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    padding: 30px;
+// Fungsi tampilkan username/password member
+function showMember() {
+    alert("Username / Password Member: user123 / pass123");
 }
+</script>
 
-/* Logo */
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 10px;
-}
-.logo img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
-.logo h1 {
-    font-size: 24px;
-    color: #0d1b2a;
-}
-
-/* Deskripsi */
-.description {
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #222222;
-    line-height: 1.5;
-}
-
-/* Payment Gateway */
-.payment {
-    text-align: center;
-    font-size: 12px;
-    color: #555555;
-    margin-bottom: 20px;
-}
-
-/* CS Contact */
-.cs-contact {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.cs-contact a {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #0d1b2a;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: background 0.3s;
-}
-.cs-contact a:hover {
-    background: #1a2f50;
-}
-.contact-info {
-    font-size: 12px;
-    color: #555555;
-    margin-top: 5px;
-}
-
-/* Form Login */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-input[type="text"], input[type="password"] {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-input:focus {
-    outline: none;
-    border-color: #0d1b2a;
-}
-
-/* Form Actions */
-.form-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-.form-actions button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.3s;
-}
-.btn-login { background: #0d1b2a; color: #fff; }
-.btn-login:hover { background: #1a2f50; }
-.btn-reset { background: #cccccc; color: #111; }
-.btn-reset:hover { background: #aaaaaa; }
-
-/* Lupa Password */
-.forgot-password {
-    text-align: center;
-    font-size: 12px;
-    color: #0d1b2a;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-/* Voucher & Member */
-.voucher-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 20px;
-}
-.voucher {
-    flex: 1;
-    background: #cce5ff;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    color: #0d1b2a;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.voucher:hover { background: #99ccff; }
-
-/* Footer */
-footer {
-    text-align: center;
-    font-size: 12px;
-    color: #888888;
-    margin-top: 25px;
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-    .voucher-container {
-        flex-direction: column;
-    }
-}
+</body>
+</html>
