@@ -5,117 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - Kelompok 2</title>
 <style>
-/* RESET & FONT */
-* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
-/* BODY & BACKGROUND */
+/* BODY */
 body {
-    margin:0;
-    min-height:100vh;
-    background: linear-gradient(135deg,#0a1a2f,#1c2f4a);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:10px;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a1a2f, #1c2f4a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 /* CONTAINER */
 .login-container {
-    background:#fff;
-    width:100%;
-    max-width:450px;
-    padding:30px;
-    border-radius:14px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.35);
-    text-align:center;
-    border-top:5px solid #c9a24d;
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    border-top: 5px solid #c9a24d;
 }
 
 /* LOGO */
-.logo { width:90px; margin-bottom:15px; }
+.logo {
+    width: 90px;
+    margin-bottom: 10px;
+}
 
-/* JUDUL */
-h2 { margin:5px 0; color:#0a1a2f; font-size:26px; }
-
-/* SUBTITLE TYPING EFFECT */
+/* JUDUL & SUBTITLE */
+h2 {
+    margin: 5px 0;
+    color: #0a1a2f;
+}
 .subtitle {
-    overflow: hidden;
-    border-right: .15em solid #c9a24d;
-    white-space: nowrap;
-    width: 0;
-    font-size:15px;
-    color:#333;
-    margin-bottom:20px;
-    line-height:1.5;
-    animation: typing 4s steps(70,end) forwards, blinkCaret 0.75s step-end infinite;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 18px;
+    line-height: 1.4;
 }
 .subtitle span {
-    font-size:13px;
-    color:#555;
-    font-style:italic;
-}
-
-/* ANIMASI TYPING */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-@keyframes blinkCaret {
-    50% { border-color: transparent; }
+    font-size: 12px;
+    opacity: 0.8;
 }
 
 /* INFO BOX */
 .info-box {
-    background:#f5f6f8;
-    padding:15px;
-    border-radius:8px;
-    font-size:14px;
-    text-align:left;
-    margin-bottom:18px;
-    border-left:4px solid #c9a24d;
+    background: #f5f6f8;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 18px;
+    border-left: 4px solid #c9a24d;
 }
-.info-box strong { color:#0a1a2f; }
+.info-box strong {
+    color: #0a1a2f;
+}
 
 /* FORM */
-.form-group { text-align:left; margin-bottom:14px; }
-.form-group label { font-size:14px; color:#0a1a2f; }
-.form-group input { width:100%; padding:10px; margin-top:6px; border-radius:6px; border:1px solid #ccc; }
-.form-group input:focus { outline:none; border-color:#c9a24d; }
-
-/* LINK BELI VOUCHER */
-.buy-voucher { display:block; margin-top:6px; font-size:12px; }
-.buy-voucher a { color:#c9a24d; font-weight:600; text-decoration:none; }
-.buy-voucher a:hover { text-decoration:underline; }
-
-/* BUTTON */
-.btn-login, .btn-reset {
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    margin-top:10px;
-    font-weight:600;
-    transition:0.3s;
+.form-group {
+    text-align: left;
+    margin-bottom: 14px;
 }
-.btn-login { background:#0a1a2f; color:#fff; }
-.btn-login:hover { background:#c9a24d; color:#000; }
-.btn-reset { background:#6c757d; color:#fff; }
-.btn-reset:hover { background:#495057; color:#fff; }
+.form-group label {
+    font-size: 14px;
+    color: #0a1a2f;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: #c9a24d;
+}
+
+/* BELI VOUCHER LINK */
+.buy-voucher {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+}
+.buy-voucher a {
+    color: #c9a24d;
+    font-weight: 600;
+    text-decoration: none;
+}
+.buy-voucher a:hover {
+    text-decoration: underline;
+}
+
+/* BUTTONS */
+.btn-login, .btn-reset {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-login {
+    background: #0a1a2f;
+    color: #fff;
+}
+.btn-login:hover {
+    background: #c9a24d;
+    color: #000;
+}
+.btn-reset {
+    background: #6c757d;
+    color: #fff;
+}
+.btn-reset:hover {
+    background: #495057;
+    color: #fff;
+}
 
 /* TABEL VOUCHER */
 .voucher-table {
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-    cursor:pointer;
-    text-align:center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    cursor: pointer;
 }
-.voucher-table td { padding:10px; border:1px solid #ccc; }
-.voucher-table tr:hover { background:#c9a24d; color:#000; }
+.voucher-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.voucher-table tr:hover {
+    background: #c9a24d;
+    color: #000;
+}
 
 /* RESPONSIVE */
-@media (max-width:480px){ .btn-login,.btn-reset{width:100%; margin-bottom:10px;} }
+@media (max-width: 480px) {
+    .btn-login, .btn-reset {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
 </style>
 </head>
 <body>
@@ -125,16 +166,15 @@ h2 { margin:5px 0; color:#0a1a2f; font-size:26px; }
     <!-- LOGO -->
     <img src="img/logo.png" alt="Logo Kelompok 2" class="logo">
 
-    <!-- NAMA KELOMPOK -->
+    <!-- JUDUL & SUBTITLE -->
     <h2>Kelompok 2</h2>
-
-    <!-- SUBTITLE TYPING -->
     <p class="subtitle">
-        Platform Manajemen Akses Internet Berbasis Voucher. Dirancang untuk Mendukung Koneksi Jaringan yang Optimal dan Aman.
+        Platform Manajemen Akses Internet Berbasis Voucher<br>
+        Dirancang untuk Mendukung Koneksi Jaringan yang Optimal dan Aman<br>
         <span>Produktif boleh, kewajiban jangan lupa — sholat tetap utama 🤲</span>
     </p>
 
-    <!-- INFO PAYMENT -->
+    <!-- INFO BOX -->
     <div class="info-box">
         <p><strong>Payment Gateway:</strong><br>
         Dana | OVO | GoPay | QRIS</p>
@@ -163,27 +203,43 @@ h2 { margin:5px 0; color:#0a1a2f; font-size:26px; }
             <input type="password" placeholder="Masukkan password" required>
         </div>
 
+        <!-- TOMBOL LOGIN & RESET -->
         <button type="submit" class="btn-login">Login</button>
         <button type="reset" class="btn-reset">Reset</button>
 
-        <!-- TABEL 5 PAKET VOUCHER -->
+        <!-- TABEL VOUCHER DI BAWAH RESET -->
         <h3 class="harga-title">Harga Voucher</h3>
         <table class="voucher-table">
-            <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
-            <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
-            <tr onclick="beliVoucher('3 Jam','7.000')"><td>3 Jam</td><td>Rp 7.000</td></tr>
-            <tr onclick="beliVoucher('6 Jam','12.000')"><td>6 Jam</td><td>Rp 12.000</td></tr>
-            <tr onclick="beliVoucher('1 Hari','15.000')"><td>1 Hari</td><td>Rp 15.000</td></tr>
+            <tr onclick="beliVoucher('1 Jam','3.000')">
+                <td>1 Jam</td>
+                <td>Rp 3.000</td>
+            </tr>
+            <tr onclick="beliVoucher('2 Jam','5.000')">
+                <td>2 Jam</td>
+                <td>Rp 5.000</td>
+            </tr>
+            <tr onclick="beliVoucher('3 Jam','7.000')">
+                <td>3 Jam</td>
+                <td>Rp 7.000</td>
+            </tr>
+            <tr onclick="beliVoucher('6 Jam','12.000')">
+                <td>6 Jam</td>
+                <td>Rp 12.000</td>
+            </tr>
+            <tr onclick="beliVoucher('1 Hari','15.000')">
+                <td>1 Hari</td>
+                <td>Rp 15.000</td>
+            </tr>
         </table>
     </form>
 
 </div>
 
 <script>
-function beliVoucher(paket,harga){
-    const waNumber='6287744797924';
-    const message=`Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
-    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`,'_blank');
+function beliVoucher(paket, harga) {
+    const waNumber = '6287744797924';
+    const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 </script>
 
