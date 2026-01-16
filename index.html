@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -68,6 +69,12 @@ h2 {
     border-left: 4px solid #c9a24d;
 }
 .info-box strong { color: #0a1a2f; }
+.info-box a {
+    color:#c9a24d;
+    text-decoration:none;
+    font-weight:600;
+}
+.info-box a:hover { text-decoration:underline; }
 
 /* FORM */
 .form-group { text-align: left; margin-bottom: 14px; }
@@ -87,7 +94,7 @@ h2 {
 .buy-voucher a:hover { text-decoration:underline; }
 
 /* BUTTONS */
-.btn-login, .btn-reset {
+.btn-login, .btn-reset, .btn-konfirmasi {
     width: 100%;
     padding: 11px;
     border: none;
@@ -101,6 +108,8 @@ h2 {
 .btn-login:hover { background: #c9a24d; color: #000; }
 .btn-reset { background: #6c757d; color: #fff; }
 .btn-reset:hover { background: #495057; color: #fff; }
+.btn-konfirmasi { background: #c9a24d; color:#000; }
+.btn-konfirmasi:hover { background: #0a1a2f; color:#fff; }
 
 /* TABLE VOUCHER */
 .voucher-table {
@@ -120,7 +129,7 @@ h2 {
 }
 
 /* RESPONSIVE */
-@media (max-width:480px) { .btn-login,.btn-reset{ width:100%; margin-bottom:10px; } }
+@media (max-width:480px) { .btn-login,.btn-reset,.btn-konfirmasi{ width:100%; margin-bottom:10px; } }
 </style>
 </head>
 <body>
@@ -139,10 +148,14 @@ h2 {
         <span>Produktif boleh, kewajiban jangan lupa — sholat tetap utama 🤲</span>
     </p>
 
-    <!-- INFO PAYMENT -->
+    <!-- PAYMENT GATEWAY -->
     <div class="info-box">
         <p><strong>Payment Gateway:</strong><br>
-        Dana | OVO | GoPay | QRIS</p>
+        <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20bayar%20voucher%20dengan%20Dana" target="_blank">Dana</a> | 
+        <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20bayar%20voucher%20dengan%20OVO" target="_blank">OVO</a> | 
+        <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20bayar%20voucher%20dengan%20GoPay" target="_blank">GoPay</a> | 
+        <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20bayar%20voucher%20dengan%20QRIS" target="_blank">QRIS</a>
+        </p>
     </div>
 
     <!-- FORM LOGIN -->
@@ -170,7 +183,10 @@ h2 {
         <button type="submit" class="btn-login">Login</button>
         <button type="reset" class="btn-reset">Reset</button>
 
-        <!-- 5 PAKET VOUCHER DI BAWAH RESET -->
+        <!-- TOMBOL KONFIRMASI PEMBAYARAN -->
+        <button type="button" class="btn-konfirmasi" onclick="konfirmasiBayar()">Konfirmasi Pembayaran</button>
+
+        <!-- 5 PAKET VOUCHER DI BAWAH -->
         <h3 class="harga-title">Harga Voucher</h3>
         <table class="voucher-table">
             <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
@@ -187,6 +203,12 @@ h2 {
 function beliVoucher(paket, harga) {
     const waNumber = '6287744797924';
     const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+function konfirmasiBayar() {
+    const waNumber = '6287744797924';
+    const message = 'Halo CS, saya sudah melakukan pembayaran, mohon cek bukti transfer saya.';
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 </script>
