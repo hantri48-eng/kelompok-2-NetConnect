@@ -7,6 +7,7 @@
 <style>
 * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
 
+/* BODY */
 body {
     background: #f0f4f8;
     min-height: 100vh;
@@ -16,46 +17,40 @@ body {
     padding: 15px;
 }
 
+/* LOGIN CONTAINER */
 .login-container {
     background: #ffffff;
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     padding: 25px 20px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     text-align: center;
 }
 
-.logo { display: block; margin: 0 auto 12px auto; width: 70px; height: auto; }
+/* LOGO */
+.logo { display: block; margin: 0 auto 12px auto; width: 80px; height: auto; }
+
+/* NAMA KELOMPOK */
 h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 
-/* Subtitle wrapper untuk animasi horizontal */
-.subtitle-wrapper {
-    overflow: hidden;
-    width: 100%;
-    margin-bottom: 18px;
-    border-radius: 6px;
-    background: #e3f2fd; /* opsional */
-}
-
+/* SUBTITLE ANIMASI */
+.subtitle-wrapper { overflow:hidden; width:100%; margin-bottom: 18px; border-radius:6px; background:#e3f2fd; }
 .subtitle-animate {
-    display: inline-block;
-    white-space: nowrap;
-    padding-left: 100%;
+    display:inline-block;
+    white-space:nowrap;
+    padding-left:100%;
     animation: slideText 12s linear infinite;
     color: #0d47a1;
     font-size: 13px;
     line-height: 1.4;
 }
+@keyframes slideText { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
 
-@keyframes slideText {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
-}
-
+/* INFO PAYMENT & CS */
 .info-box {
     background: #e3f2fd;
-    padding: 10px 12px;
+    padding: 12px;
     border-radius: 6px;
     text-align: left;
     margin-bottom: 18px;
@@ -65,58 +60,47 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 .info-box a { color:#1976d2; text-decoration:none; font-weight:600; }
 .info-box a:hover { text-decoration: underline; }
 
-/* Tombol Voucher & Member */
-.select-boxes { display: flex; gap:10px; margin-bottom:15px; }
-.select-box {
-    flex:1;
-    padding:12px;
-    border-radius:6px;
-    background:#bbdefb;
-    color:#0d47a1;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-    text-align:center;
-}
+/* FORM LOGIN */
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { font-size: 14px; color:#0d47a1; display:block; margin-bottom:5px; }
+.form-group input { width:100%; padding:10px; border-radius:6px; border:1px solid #999; font-size:14px; transition:0.3s; }
+.form-group input:focus { border-color:#555; outline:none; }
+
+/* BUTTONS */
+.btn-login, .btn-reset { width:100%; padding:12px; border-radius:6px; border:none; font-weight:600; cursor:pointer; margin-top:10px; transition:0.3s; }
+.btn-login { background:#0d47a1; color:#fff; }
+.btn-login:hover { background:#1565c0; }
+.btn-reset { background:#777; color:#fff; }
+.btn-reset:hover { background:#999; }
+
+/* LUPA PASSWORD */
+.lupa-password { display:block; margin-top:8px; font-size:12px; text-align:right; }
+.lupa-password a { color:#0d47a1; text-decoration:none; }
+.lupa-password a:hover { text-decoration: underline; }
+
+/* PILIH VOUCHER / MEMBER */
+.select-boxes { display:flex; gap:10px; margin-bottom:15px; }
+.select-box { flex:1; padding:12px; border-radius:6px; background:#bbdefb; color:#0d47a1; font-weight:600; cursor:pointer; text-align:center; transition:0.3s; }
 .select-box:hover { background:#90caf9; }
 
-/* Area tampilan hasil */
-.display-area {
-    margin-top:10px;
-    text-align:left;
-}
-.display-area .voucher-code, .display-area .member-box {
-    background:#e3f2fd;
-    border-radius:6px;
-    padding:10px;
-    margin-top:8px;
-    color:#0d47a1;
-    display:none;
-}
-
-/* Member box berdampingan */
+/* DISPLAY AREA */
+.display-area { margin-top:10px; text-align:left; }
+.display-area .voucher-code, .display-area .member-box { background:#e3f2fd; border-radius:6px; padding:10px; margin-top:8px; color:#0d47a1; display:none; }
 .member-box { display:flex; gap:10px; }
 .member-box div { flex:1; background:#e3f2fd; padding:8px; border-radius:5px; text-align:center; }
 
-.footer { font-size:11px; color:#555; margin-top:18px; text-align:center; }
-
-/* Tabel Harga Voucher */
+/* TABEL HARGA VOUCHER */
 .voucher-table { width:100%; border-collapse:collapse; margin-top:10px; font-size:13px; }
 .voucher-table th { background:#bbdefb; text-align:left; padding:8px; }
 .voucher-table td { padding:8px; border-bottom:1px solid #ccc; }
 .voucher-table tr:hover { background:#e3f2fd; }
-.buy-btn {
-    background-color: #1976d2;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-}
-.buy-btn:hover { background-color: #1565c0; }
+.buy-btn { background-color:#1976d2; color:#fff; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-weight:600; transition:0.3s; }
+.buy-btn:hover { background-color:#1565c0; }
 
+/* FOOTER */
+.footer { font-size:11px; color:#555; margin-top:18px; text-align:center; }
+
+/* RESPONSIVE */
 @media(max-width:400px){
     .login-container{padding:20px;}
     h2{font-size:20px;}
@@ -124,6 +108,7 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
     .select-boxes .select-box{padding:10px; font-size:13px;}
     .display-area .voucher-code, .display-area .member-box div{font-size:12px; padding:6px;}
     .voucher-table td, .voucher-table th{padding:6px;}
+    .btn-login, .btn-reset{padding:10px;}
 }
 </style>
 </head>
@@ -131,78 +116,67 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 
 <div class="login-container">
 
+    <!-- LOGO -->
     <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
     <h2>NetConnect 2</h2>
 
-    <!-- Subtitle bergerak -->
+    <!-- SUBTITLE -->
     <div class="subtitle-wrapper">
-        <p class="subtitle-animate">
-            NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
-        </p>
+        <p class="subtitle-animate">NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.</p>
     </div>
 
+    <!-- INFO PAYMENT & CS -->
     <div class="info-box">
         <p><strong>Payment Gateway:</strong><br>Dana | OVO | GoPay | QRIS</p>
-        <p><strong>CS:</strong> 
-            <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20ingin%20konfirmasi%20pembayaran%20voucher" target="_blank">Konfirmasi Pembayaran</a>
-        </p>
+        <p><strong>CS:</strong> <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20ingin%20konfirmasi%20pembayaran%20voucher" target="_blank">Konfirmasi Pembayaran</a></p>
     </div>
 
-    <!-- Pilih Voucher / Member -->
+    <!-- FORM LOGIN -->
+    <form>
+        <div class="form-group">
+            <label>Kode Voucher</label>
+            <input type="text" placeholder="Masukkan kode voucher" required>
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" placeholder="Masukkan username" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Masukkan password" required>
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+        <button type="reset" class="btn-reset">Reset</button>
+        <span class="lupa-password"><a href="#">Lupa Password?</a></span>
+    </form>
+
+    <!-- PILIH VOUCHER / MEMBER -->
     <div class="select-boxes">
         <div class="select-box" onclick="showVoucher()">Voucher</div>
         <div class="select-box" onclick="showMember()">Member</div>
     </div>
 
-    <!-- Area tampilan hasil -->
+    <!-- AREA TAMPILAN -->
     <div class="display-area">
-        <div class="voucher-code" id="voucherCode">
-            <strong>Kode Voucher:</strong> <!-- Kosong -->
-        </div>
+        <div class="voucher-code" id="voucherCode"><strong>Kode Voucher:</strong></div>
         <div class="member-box" id="memberBox">
-            <div><strong>Username:</strong> <!-- Kosong --></div>
-            <div><strong>Password:</strong> <!-- Kosong --></div>
+            <div><strong>Username:</strong></div>
+            <div><strong>Password:</strong></div>
         </div>
     </div>
 
-    <!-- Tabel Harga Voucher -->
+    <!-- TABEL HARGA VOUCHER -->
     <h3 style="margin-top:15px;">Harga Voucher</h3>
     <table class="voucher-table">
-        <tr>
-            <th>Durasi</th>
-            <th>Harga</th>
-            <th>Aksi</th>
-        </tr>
-        <tr>
-            <td>1 Jam</td>
-            <td>Rp 3.000</td>
-            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Jam','3.000')">Beli Voucher</button></td>
-        </tr>
-        <tr>
-            <td>2 Jam</td>
-            <td>Rp 5.000</td>
-            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('2 Jam','5.000')">Beli Voucher</button></td>
-        </tr>
-        <tr>
-            <td>3 Jam</td>
-            <td>Rp 7.000</td>
-            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('3 Jam','7.000')">Beli Voucher</button></td>
-        </tr>
-        <tr>
-            <td>6 Jam</td>
-            <td>Rp 12.000</td>
-            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('6 Jam','12.000')">Beli Voucher</button></td>
-        </tr>
-        <tr>
-            <td>1 Hari</td>
-            <td>Rp 15.000</td>
-            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Hari','15.000')">Beli Voucher</button></td>
-        </tr>
+        <tr><th>Durasi</th><th>Harga</th><th>Aksi</th></tr>
+        <tr><td>1 Jam</td><td>Rp 3.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Jam','3.000')">Beli Voucher</button></td></tr>
+        <tr><td>2 Jam</td><td>Rp 5.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('2 Jam','5.000')">Beli Voucher</button></td></tr>
+        <tr><td>3 Jam</td><td>Rp 7.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('3 Jam','7.000')">Beli Voucher</button></td></tr>
+        <tr><td>6 Jam</td><td>Rp 12.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('6 Jam','12.000')">Beli Voucher</button></td></tr>
+        <tr><td>1 Hari</td><td>Rp 15.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Hari','15.000')">Beli Voucher</button></td></tr>
     </table>
 
-    <div class="footer">
-        &copy; 2026 NetConnect 2. All Rights Reserved.
-    </div>
+    <div class="footer">&copy; 2026 NetConnect 2. All Rights Reserved.</div>
 
 </div>
 
