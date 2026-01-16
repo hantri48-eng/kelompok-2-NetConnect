@@ -67,12 +67,10 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 .voucher-table { width: 100%; border-collapse: collapse; margin-top:15px; }
 .voucher-table th, .voucher-table td { padding: 8px; border: 1px solid #ddd; font-size:13px; text-align:center; }
 .voucher-table th { background:#bbdefb; color:#0d47a1; }
-.voucher-table td button {
-    background:#1976d2; color:#fff; border:none; padding:4px 8px; border-radius:4px; cursor:pointer; transition:0.2s;
+.voucher-table td span {
+    color:#1976d2; font-weight:600; cursor:pointer; transition:0.2s;
 }
-.voucher-table td button:hover { background:#1565c0; }
-
-.voucher-code { margin-top:5px; font-size:13px; color:#0d47a1; font-weight:600; display:block; opacity:0.2; }
+.voucher-table td span:hover { color:#0d47a1; text-decoration: underline; }
 
 .footer { font-size:11px; color:#555; margin-top:18px; text-align:center; }
 
@@ -81,7 +79,7 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
     h2{font-size:20px;}
     .subtitle{font-size:12px;}
     .btn-login,.btn-reset{padding:9px; font-size:13px;}
-    .voucher-table td button{padding:3px 6px; font-size:12px;}
+    .voucher-table td span{font-size:12px;}
 }
 </style>
 </head>
@@ -123,36 +121,31 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 
         <h3 style="margin-top:12px;">Harga Voucher</h3>
         <table class="voucher-table">
-            <tr><th>Durasi</th><th>Harga</th><th>Beli</th><th>Kode Voucher</th></tr>
+            <tr><th>Durasi</th><th>Harga</th><th></th></tr>
             <tr>
                 <td>1 Jam</td>
                 <td>Rp 3.000</td>
-                <td><button type="button" onclick="beliVoucher('1 Jam','3.000', this)">Beli</button></td>
-                <td class="voucher-code"></td>
+                <td><span onclick="beliVoucher('1 Jam','3.000')">Beli Voucher</span></td>
             </tr>
             <tr>
                 <td>2 Jam</td>
                 <td>Rp 5.000</td>
-                <td><button type="button" onclick="beliVoucher('2 Jam','5.000', this)">Beli</button></td>
-                <td class="voucher-code"></td>
+                <td><span onclick="beliVoucher('2 Jam','5.000')">Beli Voucher</span></td>
             </tr>
             <tr>
                 <td>3 Jam</td>
                 <td>Rp 7.000</td>
-                <td><button type="button" onclick="beliVoucher('3 Jam','7.000', this)">Beli</button></td>
-                <td class="voucher-code"></td>
+                <td><span onclick="beliVoucher('3 Jam','7.000')">Beli Voucher</span></td>
             </tr>
             <tr>
                 <td>6 Jam</td>
                 <td>Rp 12.000</td>
-                <td><button type="button" onclick="beliVoucher('6 Jam','12.000', this)">Beli</button></td>
-                <td class="voucher-code"></td>
+                <td><span onclick="beliVoucher('6 Jam','12.000')">Beli Voucher</span></td>
             </tr>
             <tr>
                 <td>1 Hari</td>
                 <td>Rp 15.000</td>
-                <td><button type="button" onclick="beliVoucher('1 Hari','15.000', this)">Beli</button></td>
-                <td class="voucher-code"></td>
+                <td><span onclick="beliVoucher('1 Hari','15.000')">Beli Voucher</span></td>
             </tr>
         </table>
 
@@ -165,14 +158,7 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 </div>
 
 <script>
-function beliVoucher(durasi, harga, btn){
-    // contoh generate kode voucher otomatis
-    const kode = 'VC-'+Math.floor(Math.random()*9000+1000);
-    const row = btn.parentElement.parentElement;
-    const voucherCell = row.querySelector('.voucher-code');
-    voucherCell.textContent = kode;
-    voucherCell.style.opacity = "1"; // tampilkan
-    // kirim WA ke CS
+function beliVoucher(durasi, harga){
     const waNumber = '6287744797924';
     const message = `Halo CS, saya mau beli voucher ${durasi} seharga Rp ${harga}`;
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
