@@ -63,17 +63,12 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 /* PILIH VOUCHER / MEMBER */
 .select-boxes { display:flex; gap:10px; margin-bottom:15px; }
 .select-box { flex:1; padding:12px; border-radius:6px; background:#bbdefb; color:#0d47a1; font-weight:600; cursor:pointer; text-align:center; transition:0.3s; }
+.select-box.active { background:#90caf9; }
 .select-box:hover { background:#90caf9; }
 
-/* DISPLAY AREA */
-.display-area { margin-top:10px; text-align:left; }
-.display-area .voucher-code, .display-area .member-box { background:#e3f2fd; border-radius:6px; padding:10px; margin-top:8px; color:#0d47a1; display:none; }
-.member-box { display:flex; gap:10px; }
-.member-box div { flex:1; background:#e3f2fd; padding:8px; border-radius:5px; text-align:center; }
-
 /* FORM LOGIN */
-.form-login { margin-top:15px; }
-.form-group { margin-bottom: 12px; text-align:left; }
+.form-login { margin-top:15px; text-align:left; }
+.form-group { margin-bottom: 12px; }
 .form-group label { font-size: 14px; color:#0d47a1; display:block; margin-bottom:5px; }
 .form-group input { width:100%; padding:10px; border-radius:6px; border:1px solid #999; font-size:14px; transition:0.3s; }
 .form-group input:focus { border-color:#555; outline:none; }
@@ -91,7 +86,7 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 .lupa-password a:hover { text-decoration: underline; }
 
 /* TABEL HARGA VOUCHER */
-.voucher-table { width:100%; border-collapse:collapse; margin-top:10px; font-size:13px; }
+.voucher-table { width:100%; border-collapse:collapse; margin-top:15px; font-size:13px; }
 .voucher-table th { background:#bbdefb; text-align:left; padding:8px; }
 .voucher-table td { padding:8px; border-bottom:1px solid #ccc; }
 .voucher-table tr:hover { background:#e3f2fd; }
@@ -107,7 +102,7 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
     h2{font-size:20px;}
     .subtitle-animate{font-size:12px;}
     .select-boxes .select-box{padding:10px; font-size:13px;}
-    .display-area .voucher-code, .display-area .member-box div{font-size:12px; padding:6px;}
+    .form-group input{padding:8px; font-size:13px;}
     .voucher-table td, .voucher-table th{padding:6px;}
     .btn-login, .btn-reset{padding:10px;}
 }
@@ -120,10 +115,9 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
     <!-- LOGO -->
     <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
 
-    <!-- NAMA KELOMPOK -->
     <h2>NetConnect 2</h2>
 
-    <!-- SUBTITLE -->
+    <!-- Subtitle -->
     <div class="subtitle-wrapper">
         <p class="subtitle-animate">NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.</p>
     </div>
@@ -136,35 +130,33 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
         </p>
     </div>
 
-    <!-- PILIH VOUCHER / MEMBER -->
+    <!-- Pilih Voucher / Member -->
     <div class="select-boxes">
-        <div class="select-box" onclick="showVoucher()">Voucher</div>
-        <div class="select-box" onclick="showMember()">Member</div>
+        <div class="select-box active" id="tabVoucher" onclick="showTab('voucher')">Voucher</div>
+        <div class="select-box" id="tabMember" onclick="showTab('member')">Member</div>
     </div>
 
-    <!-- AREA TAMPILAN -->
-    <div class="display-area">
-        <div class="voucher-code" id="voucherCode"><strong>Kode Voucher:</strong></div>
-        <div class="member-box" id="memberBox">
-            <div><strong>Username:</strong></div>
-            <div><strong>Password:</strong></div>
+    <!-- FORM LOGIN -->
+    <form class="form-login" id="formLogin">
+        <!-- Voucher Tab -->
+        <div id="voucherFields">
+            <div class="form-group">
+                <label>Kode Voucher</label>
+                <input type="text" placeholder="Masukkan kode voucher" required>
+            </div>
         </div>
-    </div>
+        <!-- Member Tab -->
+        <div id="memberFields" style="display:none;">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" placeholder="Masukkan username" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="Masukkan password" required>
+            </div>
+        </div>
 
-    <!-- FORM LOGIN DI BAWAH VOUCHER / MEMBER -->
-    <form class="form-login">
-        <div class="form-group">
-            <label>Kode Voucher</label>
-            <input type="text" placeholder="Masukkan kode voucher" required>
-        </div>
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" placeholder="Masukkan username" required>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" placeholder="Masukkan password" required>
-        </div>
         <button type="submit" class="btn-login">Login</button>
         <button type="reset" class="btn-reset">Reset</button>
         <span class="lupa-password"><a href="#">Lupa Password?</a></span>
@@ -185,14 +177,25 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 </div>
 
 <script>
-function showVoucher() {
-    document.getElementById("voucherCode").style.display = "block";
-    document.getElementById("memberBox").style.display = "none";
+function showTab(tab){
+    const voucherFields = document.getElementById('voucherFields');
+    const memberFields = document.getElementById('memberFields');
+    const tabVoucher = document.getElementById('tabVoucher');
+    const tabMember = document.getElementById('tabMember');
+
+    if(tab === 'voucher'){
+        voucherFields.style.display = 'block';
+        memberFields.style.display = 'none';
+        tabVoucher.classList.add('active');
+        tabMember.classList.remove('active');
+    } else {
+        voucherFields.style.display = 'none';
+        memberFields.style.display = 'block';
+        tabVoucher.classList.remove('active');
+        tabMember.classList.add('active');
+    }
 }
-function showMember() {
-    document.getElementById("voucherCode").style.display = "none";
-    document.getElementById("memberBox").style.display = "flex";
-}
+
 function beliVoucher(durasi, harga){
     const waNumber = '6287744797924';
     const message = `Halo CS, saya mau beli voucher ${durasi} seharga Rp ${harga}`;
