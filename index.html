@@ -15,8 +15,8 @@
 
 /* BODY */
 body {
-    background: #2b2b2b;
-    color: #fff;
+    background: #1e1e1e; /* soft black */
+    color: #f1f1f1;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -26,7 +26,7 @@ body {
 
 /* CONTAINER */
 .login-container {
-    background: #3a3a3a;
+    background: #2f2f2f; /* soft gray */
     max-width: 480px;
     width: 100%;
     padding: 30px;
@@ -46,7 +46,7 @@ body {
 /* HEADER */
 h2 {
     margin-bottom: 8px;
-    color: #f1f1f1;
+    color: #fff;
     font-size: 24px;
 }
 
@@ -59,15 +59,17 @@ h2 {
 
 /* INFO BOX PAYMENT */
 .info-box {
-    background: #4a4a4a;
+    background: #3a3a3a; /* soft gray */
     padding: 12px;
     border-radius: 8px;
     font-size: 13px;
     text-align: left;
     margin-bottom: 20px;
-    border-left: 4px solid #c9a24d;
+    border-left: 4px solid #f1f1f1;
 }
 .info-box strong { color: #fff; }
+.info-box a { color:#f1f1f1; font-weight:600; text-decoration:none; }
+.info-box a:hover { text-decoration:underline; }
 
 /* FORM */
 .form-group { text-align: left; margin-bottom: 14px; }
@@ -77,10 +79,10 @@ h2 {
     padding: 10px;
     border-radius:6px;
     border:none;
-    background:#555;
+    background:#444; /* input abu */
     color:#fff;
 }
-.form-group input:focus { outline:none; background:#666; }
+.form-group input:focus { outline:none; background:#555; }
 
 /* LINK LUPA PASSWORD */
 .lupa-pass {
@@ -89,7 +91,7 @@ h2 {
     margin-top:5px;
     font-size:12px;
 }
-.lupa-pass a { color:#c9a24d; text-decoration:none; }
+.lupa-pass a { color:#f1f1f1; text-decoration:none; }
 .lupa-pass a:hover { text-decoration:underline; }
 
 /* BUTTONS */
@@ -103,9 +105,9 @@ h2 {
     cursor:pointer;
     transition:0.3s;
 }
-.btn-login { background:#c9a24d; color:#000; }
-.btn-login:hover { background:#e0b85a; color:#000; }
-.btn-reset { background:#777; color:#fff; }
+.btn-login { background:#f1f1f1; color:#000; }
+.btn-login:hover { background:#e0e0e0; color:#000; }
+.btn-reset { background:#666; color:#fff; }
 .btn-reset:hover { background:#555; color:#fff; }
 
 /* VOUCHER TABLE */
@@ -116,11 +118,12 @@ h2 {
 }
 .voucher-table td {
     padding:10px;
-    border:1px solid #777;
+    border:1px solid #555;
     text-align:center;
+    color:#fff;
 }
 .voucher-table tr:hover {
-    background:#c9a24d;
+    background:#f1f1f1;
     color:#000;
     cursor:pointer;
 }
@@ -131,13 +134,13 @@ h2 {
     margin-top:5px;
     padding:5px 8px;
     font-size:12px;
-    background:#c9a24d;
+    background:#f1f1f1;
     color:#000;
     border-radius:4px;
     text-decoration:none;
 }
 .buy-voucher-btn:hover {
-    background:#e0b85a;
+    background:#e0e0e0;
 }
 
 /* FOOTER */
@@ -170,7 +173,7 @@ footer {
     <!-- INFO PAYMENT -->
     <div class="info-box">
         <p><strong>Payment Gateway:</strong> Dana | OVO | GoPay | QRIS</p>
-        <p><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20ingin%20konfirmasi%20pembayaran" target="_blank" style="color:#c9a24d; font-weight:600; text-decoration:none;">Konfirmasi Pembayaran via WhatsApp</a></p>
+        <p><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20ingin%20konfirmasi%20pembayaran" target="_blank">Konfirmasi Pembayaran via WhatsApp</a></p>
     </div>
 
     <!-- FORM LOGIN -->
