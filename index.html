@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
 <style>
+/* RESET & BASE */
 * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
 
 /* BODY */
 body {
-    background: #2b2b2b; /* gelap soft */
+    background: #2c2c2c; /* abu gelap soft */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,12 +18,12 @@ body {
     padding: 15px;
 }
 
-/* CONTAINER */
+/* LOGIN CONTAINER */
 .login-container {
-    background: #f7f7f7; /* abu putih soft */
+    background: #f5f5f5; /* abu soft / putih */
     width: 100%;
     max-width: 450px;
-    padding: 30px 20px;
+    padding: 30px 25px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     text-align: center;
@@ -33,11 +34,11 @@ body {
 .logo {
     display: block;
     margin: 0 auto 15px auto;
-    width: 100px;
+    width: 80px;
     height: auto;
 }
 
-/* JUDUL */
+/* NAMA KELOMPOK */
 h2 {
     font-size: 26px;
     color: #1a1a1a;
@@ -54,36 +55,66 @@ h2 {
 
 /* INFO PAYMENT & CS */
 .info-box {
-    background: #e1e1e1;
+    background: #e8e8e8;
     padding: 12px 15px;
     border-radius: 8px;
     text-align: left;
     margin-bottom: 20px;
-    border-left: 4px solid #6b6b6b;
+    border-left: 4px solid #333;
 }
 .info-box strong { color:#1a1a1a; }
 .info-box a { color:#1976d2; text-decoration:none; font-weight:600; }
 .info-box a:hover { text-decoration: underline; }
 
-/* FORM GROUP */
-.form-group { margin-bottom: 15px; text-align:left; }
-.form-group label { font-size: 14px; color:#1a1a1a; display:block; margin-bottom:5px; }
+/* PILIH VOUCHER / MEMBER */
+.select-boxes { display: flex; gap:10px; margin-bottom:15px; justify-content:center; }
+.select-box {
+    flex:1;
+    padding:12px;
+    border-radius:6px;
+    background:#d0d0d0;
+    color:#1a1a1a;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    text-align:center;
+}
+.select-box:hover { background:#b0b0b0; }
+
+/* AREA TAMPILAN KODE / MEMBER */
+.display-area {
+    margin-top:10px;
+}
+.display-area .voucher-code,
+.display-area .member-box {
+    background:#f0f0f0;
+    border-radius:6px;
+    padding:12px;
+    margin-top:8px;
+    display:none;
+}
+.member-box { display:flex; gap:10px; }
+.member-box div { flex:1; background:#f0f0f0; padding:10px; border-radius:5px; text-align:center; }
+
+/* FORM INPUT */
+.form-group { margin-bottom:15px; text-align:left; }
+.form-group label { font-size:14px; color:#1a1a1a; margin-bottom:5px; display:block; }
 .form-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #999;
-    font-size: 14px;
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #999;
+    font-size:14px;
     transition: border 0.3s;
 }
-.form-group input:focus { border-color: #555; outline:none; }
+.form-group input:focus { border-color:#555; outline:none; }
 
 /* BUTTONS */
 .btn-login, .btn-reset {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: none;
+    width:100%;
+    padding:12px;
+    border-radius:6px;
+    border:none;
     font-weight:600;
     cursor:pointer;
     margin-top:10px;
@@ -94,18 +125,18 @@ h2 {
 .btn-reset { background:#777; color:#fff; }
 .btn-reset:hover { background:#999; }
 
-/* LINK LUPA PASSWORD */
+/* LUPA PASSWORD */
 .lupa-password { display:block; margin-top:8px; font-size:12px; text-align:right; }
 .lupa-password a { color:#333; text-decoration:none; }
 .lupa-password a:hover { text-decoration: underline; }
 
-/* TABEL VOUCHER */
-.voucher-table { width:100%; border-collapse: collapse; margin-top:20px; font-size:13px; }
-.voucher-table th { background:#bbdefb; text-align:left; padding:8px; }
-.voucher-table td { padding:8px; border-bottom:1px solid #ccc; text-align:center; }
-.voucher-table tr:hover { background:#e3f2fd; }
+/* TABEL HARGA VOUCHER */
+.voucher-table { width:100%; border-collapse:collapse; margin-top:15px; font-size:13px; }
+.voucher-table th { background:#d0d0d0; text-align:left; padding:8px; }
+.voucher-table td { padding:8px; border-bottom:1px solid #ccc; }
+.voucher-table tr:hover { background:#b0b0b0; }
 .buy-btn {
-    background-color: #1976d2;
+    background-color:#333;
     color:#fff;
     border:none;
     padding:6px 12px;
@@ -114,7 +145,10 @@ h2 {
     font-weight:600;
     transition:0.3s;
 }
-.buy-btn:hover { background-color:#1565c0; }
+.buy-btn:hover { background-color:#555; }
+
+/* FOOTER */
+.footer { font-size:11px; color:#555; margin-top:20px; text-align:center; }
 
 /* RESPONSIVE */
 @media(max-width:480px){
@@ -137,9 +171,7 @@ h2 {
     <h2>NetConnect 2</h2>
 
     <!-- SUBTITLE -->
-    <p class="subtitle">
-        NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
-    </p>
+    <p class="subtitle">NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.</p>
 
     <!-- INFO PAYMENT & CS -->
     <div class="info-box">
@@ -149,60 +181,71 @@ h2 {
         </p>
     </div>
 
-    <!-- FORM LOGIN -->
-    <form>
-        <div class="form-group">
-            <label>Kode Voucher</label>
-            <input type="text" placeholder="Masukkan kode voucher" required>
-        </div>
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" placeholder="Masukkan username" required>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" placeholder="Masukkan password" required>
-        </div>
+    <!-- PILIH VOUCHER / MEMBER -->
+    <div class="select-boxes">
+        <div class="select-box" onclick="showVoucher()">Voucher</div>
+        <div class="select-box" onclick="showMember()">Member</div>
+    </div>
 
-        <button type="submit" class="btn-login">Login</button>
-        <button type="reset" class="btn-reset">Reset</button>
-        <span class="lupa-password"><a href="#">Lupa Password?</a></span>
+    <!-- AREA TAMPILAN INPUT -->
+    <div class="display-area">
+        <div class="voucher-code" id="voucherCode">
+            <div class="form-group">
+                <label>Kode Voucher</label>
+                <input type="text" placeholder="Masukkan kode voucher">
+            </div>
+        </div>
+        <div class="member-box" id="memberBox">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" placeholder="Masukkan username">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="Masukkan password">
+            </div>
+        </div>
+    </div>
 
-        <!-- TABEL 5 PAKET VOUCHER -->
-        <h3 style="margin-top:20px;">Harga Voucher</h3>
-        <table class="voucher-table">
-            <tr>
-                <th>Durasi</th>
-                <th>Harga</th>
-                <th>Aksi</th>
-            </tr>
-            <tr>
-                <td>1 Jam</td>
-                <td>Rp 3.000</td>
-                <td><button class="buy-btn" onclick="beliVoucher('1 Jam','3.000')">Beli Voucher</button></td>
-            </tr>
-            <tr>
-                <td>2 Jam</td>
-                <td>Rp 5.000</td>
-                <td><button class="buy-btn" onclick="beliVoucher('2 Jam','5.000')">Beli Voucher</button></td>
-            </tr>
-            <tr>
-                <td>3 Jam</td>
-                <td>Rp 7.000</td>
-                <td><button class="buy-btn" onclick="beliVoucher('3 Jam','7.000')">Beli Voucher</button></td>
-            </tr>
-            <tr>
-                <td>6 Jam</td>
-                <td>Rp 12.000</td>
-                <td><button class="buy-btn" onclick="beliVoucher('6 Jam','12.000')">Beli Voucher</button></td>
-            </tr>
-            <tr>
-                <td>1 Hari</td>
-                <td>Rp 15.000</td>
-                <td><button class="buy-btn" onclick="beliVoucher('1 Hari','15.000')">Beli Voucher</button></td>
-            </tr>
-        </table>
-    </form>
+    <!-- TOMBOL LOGIN / RESET / LUPA PASSWORD -->
+    <button class="btn-login">Login</button>
+    <button class="btn-reset">Reset</button>
+    <span class="lupa-password"><a href="#">Lupa Password?</a></span>
+
+    <!-- TABEL HARGA VOUCHER -->
+    <h3 style="margin-top:20px;">Harga Voucher</h3>
+    <table class="voucher-table">
+        <tr>
+            <th>Durasi</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>1 Jam</td>
+            <td>Rp 3.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Jam','3.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>2 Jam</td>
+            <td>Rp 5.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('2 Jam','5.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>3 Jam</td>
+            <td>Rp 7.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('3 Jam','7.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>6 Jam</td>
+            <td>Rp 12.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('6 Jam','12.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>1 Hari</td>
+            <td>Rp 15.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Hari','15.000')">Beli Voucher</button></td>
+        </tr>
+    </table>
 
     <div class="footer">
         &copy; 2026 NetConnect 2. All Rights Reserved.
@@ -211,6 +254,14 @@ h2 {
 </div>
 
 <script>
+function showVoucher() {
+    document.getElementById("voucherCode").style.display = "block";
+    document.getElementById("memberBox").style.display = "none";
+}
+function showMember() {
+    document.getElementById("voucherCode").style.display = "none";
+    document.getElementById("memberBox").style.display = "flex";
+}
 function beliVoucher(durasi, harga){
     const waNumber = '6287744797924';
     const message = `Halo CS, saya mau beli voucher ${durasi} seharga Rp ${harga}`;
