@@ -28,7 +28,30 @@ body {
 
 .logo { display: block; margin: 0 auto 12px auto; width: 70px; height: auto; }
 h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
-.subtitle { font-size: 13px; color: #555555; margin-bottom: 18px; line-height: 1.4; }
+
+/* Subtitle wrapper untuk animasi horizontal */
+.subtitle-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    background: #e3f2fd; /* opsional */
+}
+
+.subtitle-animate {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: slideText 12s linear infinite;
+    color: #0d47a1;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@keyframes slideText {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
 
 .info-box {
     background: #e3f2fd;
@@ -97,7 +120,7 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 @media(max-width:400px){
     .login-container{padding:20px;}
     h2{font-size:20px;}
-    .subtitle{font-size:12px;}
+    .subtitle-animate{font-size:12px;}
     .select-boxes .select-box{padding:10px; font-size:13px;}
     .display-area .voucher-code, .display-area .member-box div{font-size:12px; padding:6px;}
     .voucher-table td, .voucher-table th{padding:6px;}
@@ -110,9 +133,13 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 
     <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
     <h2>NetConnect 2</h2>
-    <p class="subtitle">
-        NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
-    </p>
+
+    <!-- Subtitle bergerak -->
+    <div class="subtitle-wrapper">
+        <p class="subtitle-animate">
+            NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
+        </p>
+    </div>
 
     <div class="info-box">
         <p><strong>Payment Gateway:</strong><br>Dana | OVO | GoPay | QRIS</p>
