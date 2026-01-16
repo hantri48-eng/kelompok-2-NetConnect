@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
 <style>
-/* RESET & BASE */
 * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
 
 body {
-    background: #f0f4f8; /* soft biru muda */
+    background: #f0f4f8;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,7 +17,7 @@ body {
 }
 
 .login-container {
-    background: #ffffff; /* putih */
+    background: #ffffff;
     width: 100%;
     max-width: 360px;
     padding: 25px 20px;
@@ -28,11 +27,11 @@ body {
 }
 
 .logo { display: block; margin: 0 auto 12px auto; width: 70px; height: auto; }
-h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; } /* biru tua */
+h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
 .subtitle { font-size: 13px; color: #555555; margin-bottom: 18px; line-height: 1.4; }
 
 .info-box {
-    background: #e3f2fd; /* biru sangat muda */
+    background: #e3f2fd;
     padding: 10px 12px;
     border-radius: 6px;
     text-align: left;
@@ -64,37 +63,16 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; } /* biru tua */
 .lupa-password a { color:#1976d2; text-decoration:none; }
 .lupa-password a:hover { text-decoration: underline; }
 
-.voucher-member { display:flex; justify-content:space-between; gap:8px; margin-top:15px; }
-.voucher-member div {
-    flex:1;
-    background:#bbdefb; /* biru muda */
-    text-align:center;
-    padding:8px 0;
-    border-radius:6px;
-    font-weight:600;
-    color:#0d47a1;
-    cursor:pointer;
-    transition:0.2s;
-}
-.voucher-member div:hover { background:#90caf9; }
-
-.reveal-box {
-    margin-top:8px;
-    background:#e3f2fd;
-    padding:8px;
-    border-radius:5px;
-    color: #0d47a1;
-    font-weight:600;
-    display:flex;
-    justify-content:space-between;
-    gap:8px;
-    min-height:30px;
-    opacity:0.2; /* default transparan */
-}
-
+/* TABEL HARGA VOUCHER */
 .voucher-table { width: 100%; border-collapse: collapse; margin-top:15px; }
-.voucher-table td { padding: 8px; border: 1px solid #ddd; text-align:center; font-size:13px; }
-.voucher-table tr:hover { background:#1976d2; color:#fff; cursor:pointer; }
+.voucher-table th, .voucher-table td { padding: 8px; border: 1px solid #ddd; font-size:13px; text-align:center; }
+.voucher-table th { background:#bbdefb; color:#0d47a1; }
+.voucher-table td button {
+    background:#1976d2; color:#fff; border:none; padding:4px 8px; border-radius:4px; cursor:pointer; transition:0.2s;
+}
+.voucher-table td button:hover { background:#1565c0; }
+
+.voucher-code { margin-top:5px; font-size:13px; color:#0d47a1; font-weight:600; display:block; opacity:0.2; }
 
 .footer { font-size:11px; color:#555; margin-top:18px; text-align:center; }
 
@@ -103,6 +81,7 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; } /* biru tua */
     h2{font-size:20px;}
     .subtitle{font-size:12px;}
     .btn-login,.btn-reset{padding:9px; font-size:13px;}
+    .voucher-table td button{padding:3px 6px; font-size:12px;}
 }
 </style>
 </head>
@@ -142,26 +121,39 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; } /* biru tua */
         <button type="reset" class="btn-reset">Reset</button>
         <span class="lupa-password"><a href="#">Lupa Password?</a></span>
 
-        <div class="voucher-member">
-            <div onclick="toggleReveal('voucher-box')">Voucher</div>
-            <div onclick="toggleReveal('member-box')">Member</div>
-        </div>
-
-        <div id="voucher-box" class="reveal-box">
-            <div>Kode Voucher</div>
-        </div>
-        <div id="member-box" class="reveal-box">
-            <div>Username</div>
-            <div>Password</div>
-        </div>
-
         <h3 style="margin-top:12px;">Harga Voucher</h3>
         <table class="voucher-table">
-            <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
-            <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
-            <tr onclick="beliVoucher('3 Jam','7.000')"><td>3 Jam</td><td>Rp 7.000</td></tr>
-            <tr onclick="beliVoucher('6 Jam','12.000')"><td>6 Jam</td><td>Rp 12.000</td></tr>
-            <tr onclick="beliVoucher('1 Hari','15.000')"><td>1 Hari</td><td>Rp 15.000</td></tr>
+            <tr><th>Durasi</th><th>Harga</th><th>Beli</th><th>Kode Voucher</th></tr>
+            <tr>
+                <td>1 Jam</td>
+                <td>Rp 3.000</td>
+                <td><button type="button" onclick="beliVoucher('1 Jam','3.000', this)">Beli</button></td>
+                <td class="voucher-code"></td>
+            </tr>
+            <tr>
+                <td>2 Jam</td>
+                <td>Rp 5.000</td>
+                <td><button type="button" onclick="beliVoucher('2 Jam','5.000', this)">Beli</button></td>
+                <td class="voucher-code"></td>
+            </tr>
+            <tr>
+                <td>3 Jam</td>
+                <td>Rp 7.000</td>
+                <td><button type="button" onclick="beliVoucher('3 Jam','7.000', this)">Beli</button></td>
+                <td class="voucher-code"></td>
+            </tr>
+            <tr>
+                <td>6 Jam</td>
+                <td>Rp 12.000</td>
+                <td><button type="button" onclick="beliVoucher('6 Jam','12.000', this)">Beli</button></td>
+                <td class="voucher-code"></td>
+            </tr>
+            <tr>
+                <td>1 Hari</td>
+                <td>Rp 15.000</td>
+                <td><button type="button" onclick="beliVoucher('1 Hari','15.000', this)">Beli</button></td>
+                <td class="voucher-code"></td>
+            </tr>
         </table>
 
     </form>
@@ -173,19 +165,17 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; } /* biru tua */
 </div>
 
 <script>
-function beliVoucher(paket, harga) {
+function beliVoucher(durasi, harga, btn){
+    // contoh generate kode voucher otomatis
+    const kode = 'VC-'+Math.floor(Math.random()*9000+1000);
+    const row = btn.parentElement.parentElement;
+    const voucherCell = row.querySelector('.voucher-code');
+    voucherCell.textContent = kode;
+    voucherCell.style.opacity = "1"; // tampilkan
+    // kirim WA ke CS
     const waNumber = '6287744797924';
-    const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
+    const message = `Halo CS, saya mau beli voucher ${durasi} seharga Rp ${harga}`;
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-function toggleReveal(id){
-    const box = document.getElementById(id);
-    if(box.style.opacity === "0.2" || box.style.opacity === ""){
-        box.style.opacity = "1";
-    } else {
-        box.style.opacity = "0.2";
-    }
 }
 </script>
 
