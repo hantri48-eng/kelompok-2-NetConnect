@@ -1,221 +1,56 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Voucher - NetConnect 2</title>
-<style>
-* {
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin:0; padding:0;
-}
-
-/* BODY */
-body {
-    background: linear-gradient(135deg, #2f2f2f, #4a4a4a);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-}
-
-/* CONTAINER */
-.login-container {
-    background: #f2f2f2;
-    width: 100%;
-    max-width: 450px;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    text-align: center;
-}
-
-/* LOGO */
-.logo {
-    display: block;
-    margin: 0 auto 15px auto;
-    width: 100px;
-    height: auto;
-}
-
-/* NAMA KELOMPOK */
-h2 {
-    color: #1a1a1a;
-    font-size: 28px;
-    margin-bottom: 8px;
-}
-
-/* SUBTITLE */
-.subtitle {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-/* INFO BOX PAYMENT GATEWAY */
-.info-box {
-    background: #e1e1e1;
-    padding: 12px 15px;
-    border-radius: 8px;
-    text-align: left;
-    margin-bottom: 20px;
-    border-left: 4px solid #6b6b6b;
-}
-.info-box strong {
-    color:#1a1a1a;
-}
-
-/* FORM GROUP */
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-.form-group label {
-    font-size: 14px;
-    color:#1a1a1a;
-    display:block;
-    margin-bottom:5px;
-}
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #999;
-    font-size: 14px;
-}
-
-/* BUTTONS */
-.btn-login, .btn-reset {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-    transition:0.3s;
-}
-.btn-login { background:#333; color:#fff; }
-.btn-login:hover { background:#555; }
-.btn-reset { background:#777; color:#fff; }
-.btn-reset:hover { background:#999; }
-
-/* LINK LUPA PASSWORD */
-.lupa-password {
-    display:block;
-    margin-top: 8px;
-    font-size: 12px;
-}
-.lupa-password a {
-    color:#333;
-    text-decoration:none;
-}
-.lupa-password a:hover {
-    text-decoration: underline;
-}
-
-/* TABEL VOUCHER */
-.voucher-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    cursor: pointer;
-}
-.voucher-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align:center;
-}
-.voucher-table tr:hover {
-    background:#999;
-    color:#fff;
-}
-
-/* FOOTER */
-.footer {
-    font-size:12px;
-    color:#666;
-    margin-top: 25px;
-    text-align:center;
-}
-
-/* RESPONSIVE */
-@media(max-width:480px){
-    .login-container{padding:20px;}
-    h2{font-size:24px;}
-    .subtitle{font-size:13px;}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Voucher - NetConnect 2</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <!-- Logo dan Nama -->
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Octicons-mark-github.svg" alt="Logo NetConnect 2">
+            <h1>NetConnect 2</h1>
+        </div>
 
-<div class="login-container">
+        <!-- Deskripsi -->
+        <p class="description">
+            NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
+        </p>
 
-    <!-- LOGO -->
-    <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
+        <!-- Payment Gateway -->
+        <p class="payment">Payment Gateway</p>
 
-    <!-- NAMA KELOMPOK -->
-    <h2>NetConnect 2</h2>
+        <!-- CS -->
+        <div class="cs-contact">
+            <a href="https://wa.me/6281234567890?text=Halo%20CS%20NetConnect,%20saya%20ingin%20konfirmasi%20pembayaran" target="_blank">
+                Konfirmasi Pembayaran
+            </a>
+            <p class="contact-info">Email: support@netconnect2.com</p>
+        </div>
 
-    <!-- SUBTITLE -->
-    <p class="subtitle">
-        NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
-    </p>
+        <!-- Form Login -->
+        <form>
+            <input type="text" placeholder="Username / Email" required>
+            <input type="password" placeholder="Password" required>
+            <div class="form-actions">
+                <button type="submit" class="btn-login">Login</button>
+                <button type="reset" class="btn-reset">Reset</button>
+            </div>
+            <div class="forgot-password">Lupa Password?</div>
+        </form>
 
-    <!-- INFO PAYMENT -->
-    <div class="info-box">
-        <p><strong>Payment Gateway:</strong><br>
-        Dana | OVO | GoPay | QRIS</p>
-        <p><strong>CS:</strong> <a href="https://wa.me/6287744797924" target="_blank">+62 877 4479 7924 (WhatsApp)</a><br>
-        Email: <a href="mailto:netconnect2@example.com">netconnect2@example.com</a></p>
+        <!-- Voucher & Member -->
+        <div class="voucher-container">
+            <div class="voucher" onclick="alert('Kode Voucher: ABCD-1234')">Voucher</div>
+            <div class="voucher" onclick="alert('Member Username/Password: user123 / pass123')">Member</div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2026 NetConnect 2. All rights reserved.
+        </footer>
     </div>
-
-    <!-- FORM LOGIN -->
-    <form>
-        <div class="form-group">
-            <label>Kode Voucher</label>
-            <input type="text" placeholder="Masukkan kode voucher" required>
-        </div>
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" placeholder="Masukkan username" required>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" placeholder="Masukkan password" required>
-        </div>
-
-        <button type="submit" class="btn-login">Login</button>
-        <button type="reset" class="btn-reset">Reset</button>
-        <span class="lupa-password"><a href="#">Lupa Password?</a></span>
-
-        <!-- TABEL 5 PAKET VOUCHER -->
-        <h3 style="margin-top:20px;">Harga Voucher</h3>
-        <table class="voucher-table">
-            <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
-            <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
-            <tr onclick="beliVoucher('3 Jam','7.000')"><td>3 Jam</td><td>Rp 7.000</td></tr>
-            <tr onclick="beliVoucher('6 Jam','12.000')"><td>6 Jam</td><td>Rp 12.000</td></tr>
-            <tr onclick="beliVoucher('1 Hari','15.000')"><td>1 Hari</td><td>Rp 15.000</td></tr>
-        </table>
-    </form>
-
-    <div class="footer">
-        &copy; 2026 NetConnect 2. All Rights Reserved.
-    </div>
-
-</div>
-
-<script>
-function beliVoucher(paket, harga) {
-    const waNumber = '6287744797924';
-    const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
-    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
-}
-</script>
-
 </body>
 </html>
