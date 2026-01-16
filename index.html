@@ -8,7 +8,7 @@
 * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
 
 body {
-    background: #f7f7f7;
+    background: #f0f4f8; /* biru sangat muda */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,40 +17,41 @@ body {
 }
 
 .login-container {
-    background: #fff;
+    background: #ffffff; /* putih */
     width: 100%;
     max-width: 360px;
     padding: 25px 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     text-align: center;
 }
 
 .logo { display: block; margin: 0 auto 12px auto; width: 70px; height: auto; }
-h2 { font-size: 22px; color: #1a1a1a; margin-bottom: 6px; }
-.subtitle { font-size: 13px; color: #555; margin-bottom: 18px; line-height: 1.4; }
+h2 { font-size: 22px; color: #0b3d91; margin-bottom: 6px; } /* biru tua */
+.subtitle { font-size: 13px; color: #333; margin-bottom: 18px; line-height: 1.4; }
 
 .info-box {
-    background: #e8f0fe;
+    background: #e1f0ff; /* biru sangat terang */
     padding: 10px 12px;
     border-radius: 6px;
     text-align: left;
     margin-bottom: 18px;
+    border-left: 4px solid #0b3d91;
 }
-.info-box strong { color:#1a1a1a; }
+.info-box strong { color:#0b3d91; }
 .info-box a { color:#0b3d91; text-decoration:none; font-weight:600; }
 .info-box a:hover { text-decoration: underline; }
 
 .form-group { margin-bottom: 12px; text-align: left; }
-.form-group label { font-size: 13px; color:#1a1a1a; display:block; margin-bottom:3px; }
+.form-group label { font-size: 13px; color:#0b3d91; display:block; margin-bottom:3px; }
 .form-group input {
     width: 100%;
     padding: 8px 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #0b3d91;
     font-size: 14px;
 }
-.form-group input:focus { border-color: #0b3d91; outline: none; }
+.form-group input:focus { border-color: #084080; outline: none; }
 
 .btn-login, .btn-reset { width: 100%; padding: 10px; border-radius: 6px; border: none; font-weight: 600; cursor: pointer; margin-top: 8px; transition:0.3s; font-size: 14px; }
 .btn-login { background:#0b3d91; color:#fff; }
@@ -65,23 +66,23 @@ h2 { font-size: 22px; color: #1a1a1a; margin-bottom: 6px; }
 .voucher-member { display:flex; justify-content:space-between; gap:8px; margin-top:15px; }
 .voucher-member div {
     flex:1;
-    background:#cce5ff;
+    background:#b3d7ff; /* biru muda */
     text-align:center;
     padding:8px 0;
     border-radius:6px;
     font-weight:600;
-    color:#0d1b2a;
+    color:#0b3d91;
     cursor:pointer;
     transition:0.2s;
 }
-.voucher-member div:hover { background:#b3d7ff; }
+.voucher-member div:hover { background:#99c2ff; }
 
 .reveal-box {
     margin-top:8px;
     background:#e0e0e0;
     padding:8px;
     border-radius:5px;
-    color: #0d1b2a;
+    color: #0b3d91;
     font-weight:600;
     display:flex;
     justify-content:space-between;
@@ -90,12 +91,11 @@ h2 { font-size: 22px; color: #1a1a1a; margin-bottom: 6px; }
     opacity:0.2; /* default transparan */
 }
 
-/* TABEL VOUCHER */
 .voucher-table { width: 100%; border-collapse: collapse; margin-top:15px; }
 .voucher-table td { padding: 8px; border: 1px solid #ddd; text-align:center; font-size:13px; }
 .voucher-table tr:hover { background:#0b3d91; color:#fff; cursor:pointer; }
 
-.footer { font-size:11px; color:#888; margin-top:18px; text-align:center; }
+.footer { font-size:11px; color:#555; margin-top:18px; text-align:center; }
 
 @media(max-width:400px){
     .login-container{padding:20px;}
@@ -141,13 +141,11 @@ h2 { font-size: 22px; color: #1a1a1a; margin-bottom: 6px; }
         <button type="reset" class="btn-reset">Reset</button>
         <span class="lupa-password"><a href="#">Lupa Password?</a></span>
 
-        <!-- Voucher & Member Buttons -->
         <div class="voucher-member">
             <div onclick="toggleReveal('voucher-box')">Voucher</div>
             <div onclick="toggleReveal('member-box')">Member</div>
         </div>
 
-        <!-- Kotak reveal default kosong tapi label tetap ada -->
         <div id="voucher-box" class="reveal-box">
             <div>Kode Voucher</div>
         </div>
@@ -156,7 +154,6 @@ h2 { font-size: 22px; color: #1a1a1a; margin-bottom: 6px; }
             <div>Password</div>
         </div>
 
-        <!-- TABEL HARGA VOUCHER -->
         <h3 style="margin-top:12px;">Harga Voucher</h3>
         <table class="voucher-table">
             <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
@@ -181,13 +178,12 @@ function beliVoucher(paket, harga) {
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-// Toggle reveal (tetap kosong, hanya opacity 1 untuk interaksi)
 function toggleReveal(id){
     const box = document.getElementById(id);
     if(box.style.opacity === "0.2" || box.style.opacity === ""){
-        box.style.opacity = "1"; // aktifkan interaksi
+        box.style.opacity = "1";
     } else {
-        box.style.opacity = "0.2"; // kembali transparan
+        box.style.opacity = "0.2";
     }
 }
 </script>
