@@ -17,7 +17,7 @@
     <h2>Kelompok 2</h2>
     <p class="subtitle">Layanan Login Voucher Internet</p>
 
-    <!-- INFO VOUCHER -->
+    <!-- INFO -->
     <div class="info-box">
         <p><strong>Paket Voucher:</strong></p>
         <ul>
@@ -29,19 +29,12 @@
         <p><strong>Payment Gateway:</strong><br>
             Dana | OVO | GoPay | QRIS
         </p>
-
-        <p>
-            <strong>Customer Service:</strong>
-            <a href="https://wa.me/6287744797924" target="_blank">
-                Hubungi via WhatsApp
-            </a>
-        </p>
     </div>
 
     <!-- FORM LOGIN -->
     <form class="login-form">
 
-        <!-- KODE VOUCHER + BELI -->
+        <!-- KODE VOUCHER -->
         <div class="form-group">
             <label>Kode Voucher</label>
             <input type="text" placeholder="Masukkan kode voucher" required>
@@ -67,19 +60,13 @@
 
         <button type="submit" class="btn-login">Login</button>
         <button type="reset" class="btn-reset">Reset</button>
-
-        <div class="extra-links">
-            <a href="#">Lupa Password?</a> |
-            <a href="https://wa.me/6287744797924" target="_blank">Hubungi CS</a>
-        </div>
     </form>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Kelompok 2 – Teknik Komputer
-    </footer>
+    <!-- HARGA VOUCHER (KLIK LANGSUNG KE WA) -->
+    <h3 class="harga-title">Harga Voucher</h3>
 
-</div>
-
-</body>
-</html>
+    <table class="voucher-table">
+        <tr onclick="beliVoucher('1 Jam','3000')">
+            <td>1 Jam</td>
+            <td>Rp 3.000</td>
+        </tr>
