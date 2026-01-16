@@ -125,15 +125,15 @@
     <h3 class="harga-title">Harga Voucher</h3>
 
     <table class="voucher-table">
-        <tr onclick="beliVoucher('1 Jam','3000')">
+        <tr onclick="beliVoucher('1 Jam','3.000')">
             <td>1 Jam</td>
             <td>Rp 3.000</td>
         </tr>
-        <tr onclick="beliVoucher('3 Jam','7000')">
+        <tr onclick="beliVoucher('3 Jam','7.000')">
             <td>3 Jam</td>
             <td>Rp 7.000</td>
         </tr>
-        <tr onclick="beliVoucher('1 Hari','15000')">
+        <tr onclick="beliVoucher('1 Hari','15.000')">
             <td>1 Hari</td>
             <td>Rp 15.000</td>
         </tr>
@@ -145,6 +145,7 @@
     function beliVoucher(paket, harga) {
         const waNumber = '6287744797924';
         const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
+        // buka WA di tab baru
         window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
     }
 </script>
