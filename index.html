@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
 <style>
-* {
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin:0; padding:0;
-}
+* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
 
 /* BODY */
 body {
@@ -64,21 +60,23 @@ h2 {
     margin-bottom: 20px;
     border-left: 4px solid #6b6b6b;
 }
-.info-box strong {
-    color:#1a1a1a;
+.info-box strong { color:#1a1a1a; }
+.info-box a.btn-confirm {
+    display:inline-block;
+    margin-top:8px;
+    padding:6px 12px;
+    background:#25d366;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    text-decoration:none;
+    transition:0.3s;
 }
+.info-box a.btn-confirm:hover { background:#128c50; }
 
 /* FORM GROUP */
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-.form-group label {
-    font-size: 14px;
-    color:#1a1a1a;
-    display:block;
-    margin-bottom:5px;
-}
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { font-size: 14px; color:#1a1a1a; display:block; margin-bottom:5px; }
 .form-group input {
     width: 100%;
     padding: 10px;
@@ -104,43 +102,17 @@ h2 {
 .btn-reset:hover { background:#999; }
 
 /* LINK LUPA PASSWORD */
-.lupa-password {
-    display:block;
-    margin-top: 8px;
-    font-size: 12px;
-}
-.lupa-password a {
-    color:#333;
-    text-decoration:none;
-}
-.lupa-password a:hover {
-    text-decoration: underline;
-}
+.lupa-password { display:block; margin-top: 8px; font-size: 12px; text-align:right; }
+.lupa-password a { color:#333; text-decoration:none; }
+.lupa-password a:hover { text-decoration: underline; }
 
 /* TABEL VOUCHER */
-.voucher-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    cursor: pointer;
-}
-.voucher-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align:center;
-}
-.voucher-table tr:hover {
-    background:#999;
-    color:#fff;
-}
+.voucher-table { width: 100%; border-collapse: collapse; margin-top: 20px; cursor: pointer; }
+.voucher-table td { padding: 10px; border: 1px solid #ccc; text-align:center; }
+.voucher-table tr:hover { background:#999; color:#fff; }
 
 /* FOOTER */
-.footer {
-    font-size:12px;
-    color:#666;
-    margin-top: 25px;
-    text-align:center;
-}
+.footer { font-size:12px; color:#666; margin-top: 25px; text-align:center; }
 
 /* RESPONSIVE */
 @media(max-width:480px){
@@ -169,8 +141,13 @@ h2 {
     <div class="info-box">
         <p><strong>Payment Gateway:</strong><br>
         Dana | OVO | GoPay | QRIS</p>
-        <p><strong>CS:</strong> <a href="https://wa.me/6287744797924" target="_blank">+62 877 4479 7924 (WhatsApp)</a><br>
-        Email: <a href="mailto:netconnect2@example.com">netconnect2@example.com</a></p>
+        <p>
+            <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20ingin%20konfirmasi%20pembayaran" 
+               target="_blank" class="btn-confirm">
+               Konfirmasi Pembayaran
+            </a>
+        </p>
+        <p>Email: <a href="mailto:netconnect2@example.com">netconnect2@example.com</a></p>
     </div>
 
     <!-- FORM LOGIN -->
@@ -180,42 +157,4 @@ h2 {
             <input type="text" placeholder="Masukkan kode voucher" required>
         </div>
         <div class="form-group">
-            <label>Username</label>
-            <input type="text" placeholder="Masukkan username" required>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" placeholder="Masukkan password" required>
-        </div>
-
-        <button type="submit" class="btn-login">Login</button>
-        <button type="reset" class="btn-reset">Reset</button>
-        <span class="lupa-password"><a href="#">Lupa Password?</a></span>
-
-        <!-- TABEL 5 PAKET VOUCHER -->
-        <h3 style="margin-top:20px;">Harga Voucher</h3>
-        <table class="voucher-table">
-            <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
-            <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
-            <tr onclick="beliVoucher('3 Jam','7.000')"><td>3 Jam</td><td>Rp 7.000</td></tr>
-            <tr onclick="beliVoucher('6 Jam','12.000')"><td>6 Jam</td><td>Rp 12.000</td></tr>
-            <tr onclick="beliVoucher('1 Hari','15.000')"><td>1 Hari</td><td>Rp 15.000</td></tr>
-        </table>
-    </form>
-
-    <div class="footer">
-        &copy; 2026 NetConnect 2. All Rights Reserved.
-    </div>
-
-</div>
-
-<script>
-function beliVoucher(paket, harga) {
-    const waNumber = '6287744797924';
-    const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
-    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
-}
-</script>
-
-</body>
-</html>
+            <label>Username</
