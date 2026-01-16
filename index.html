@@ -4,82 +4,193 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
-<link rel="stylesheet" href="style.css">
 <style>
-/* Compact modal overlay */
+/* RESET & BASE */
+* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
+
+/* BODY */
+body {
+    background: #f7f7f7; /* putih bersih */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+/* CONTAINER LOGIN */
+.login-container {
+    background: #fff;
+    width: 100%;
+    max-width: 360px;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* LOGO */
+.logo {
+    display: block;
+    margin: 0 auto 12px auto;
+    width: 70px;
+    height: auto;
+}
+
+/* NAMA KELOMPOK */
+h2 {
+    font-size: 22px;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+}
+
+/* SUBTITLE */
+.subtitle {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+/* INFO PAYMENT & CS */
+.info-box {
+    background: #e8f0fe;
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-align: left;
+    margin-bottom: 18px;
+}
+.info-box strong { color:#1a1a1a; }
+.info-box a { color:#0b3d91; text-decoration:none; font-weight:600; }
+.info-box a:hover { text-decoration: underline; }
+
+/* FORM */
+.form-group { margin-bottom: 12px; text-align: left; }
+.form-group label { font-size: 13px; color:#1a1a1a; display:block; margin-bottom:3px; }
+.form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+.form-group input:focus { border-color: #0b3d91; outline: none; }
+
+/* BUTTONS */
+.btn-login, .btn-reset {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition:0.3s;
+    font-size: 14px;
+}
+.btn-login { background:#0b3d91; color:#fff; }
+.btn-login:hover { background:#084080; }
+.btn-reset { background:#ccc; color:#333; }
+.btn-reset:hover { background:#aaa; }
+
+/* LINK LUPA PASSWORD */
+.lupa-password { display:block; margin-top: 6px; font-size: 12px; text-align:right; }
+.lupa-password a { color:#0b3d91; text-decoration:none; }
+.lupa-password a:hover { text-decoration: underline; }
+
+/* VOUCHER & MEMBER BUTTONS */
+.voucher-member {
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    margin-top:15px;
+}
+.voucher-member div {
+    flex:1;
+    background:#cce5ff;
+    text-align:center;
+    padding:8px 0;
+    border-radius:6px;
+    font-weight:600;
+    color:#0d1b2a;
+    cursor:pointer;
+    transition:0.2s;
+}
+.voucher-member div:hover { background:#b3d7ff; }
+
+/* TABEL VOUCHER */
+.voucher-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top:15px;
+}
+.voucher-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align:center;
+    font-size:13px;
+}
+.voucher-table tr:hover { background:#0b3d91; color:#fff; cursor:pointer; }
+
+/* FOOTER */
+.footer {
+    font-size:11px;
+    color:#888;
+    margin-top:18px;
+    text-align:center;
+}
+
+/* MODAL */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index:1000;
     left:0; top:0;
-    width: 100%; height: 100%;
+    width:100%; height:100%;
     background: rgba(0,0,0,0.4);
     justify-content: center;
     align-items: center;
 }
-
-/* Compact modal content */
 .modal-content {
-    background: #f2f2f2;
-    padding: 15px;
-    border-radius: 8px;
-    max-width: 300px;
-    width: 90%;
-    text-align: center;
+    background:#fff;
+    padding:15px;
+    border-radius:8px;
+    max-width:280px;
+    width:90%;
+    text-align:center;
     position: relative;
-    font-size:14px;
+    font-size:13px;
 }
-
-/* Close button */
 .modal-close {
     position: absolute;
     top:5px; right:10px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:16px;
 }
-
-/* Voucher / Member display inside modal */
 .modal-body {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    margin-top: 15px;
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    margin-top:12px;
 }
 .modal-body div {
     flex:1;
     background:#cce5ff;
-    padding: 10px;
-    border-radius:6px;
-    color:#0d1b2a;
+    padding:8px;
+    border-radius:5px;
     font-weight:600;
+    color:#0d1b2a;
     font-size:13px;
 }
 
-/* Compact login container */
-.login-container {
-    max-width: 360px;
-    padding: 20px;
-}
-
-/* Voucher & Member buttons compact */
-.login-container div[onclick] {
-    padding: 10px;
-    font-size: 14px;
-}
-
-/* Tabel voucher compact */
-.voucher-table td {
-    padding: 8px;
-    font-size:13px;
-}
-
-/* Responsive */
-@media(max-width:480px){
-    .login-container{padding:15px;}
-    h2{font-size:22px;}
+/* RESPONSIVE */
+@media(max-width:400px){
+    .login-container{padding:20px;}
+    h2{font-size:20px;}
     .subtitle{font-size:12px;}
-    .btn-login, .btn-reset{padding:10px; font-size:14px;}
+    .btn-login,.btn-reset{padding:9px; font-size:13px;}
 }
 </style>
 </head>
@@ -88,7 +199,7 @@
 <div class="login-container">
 
     <!-- LOGO -->
-    <img src="img/logo.png" alt="Logo NetConnect 2" class="logo" style="width:80px;">
+    <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
 
     <!-- NAMA KELOMPOK -->
     <h2>NetConnect 2</h2>
@@ -127,13 +238,13 @@
         <span class="lupa-password"><a href="#">Lupa Password?</a></span>
 
         <!-- VOUCHER & MEMBER -->
-        <div style="display:flex; justify-content:space-between; gap:8px; margin-top:15px;">
+        <div class="voucher-member">
             <div onclick="openModal('voucher')">Voucher</div>
             <div onclick="openModal('member')">Member</div>
         </div>
 
         <!-- TABEL HARGA VOUCHER -->
-        <h3 style="margin-top:15px;">Harga Voucher</h3>
+        <h3 style="margin-top:12px;">Harga Voucher</h3>
         <table class="voucher-table">
             <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
             <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
@@ -188,7 +299,6 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// Close modal when click outside content
 window.onclick = function(e){
     if(e.target === modal) closeModal();
 }
