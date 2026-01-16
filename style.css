@@ -3,6 +3,7 @@
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* BACKGROUND */
 body {
     margin: 0;
     min-height: 100vh;
@@ -12,24 +13,28 @@ body {
     align-items: center;
 }
 
+/* CONTAINER */
 .login-container {
     background: #ffffff; /* PUTIH */
     width: 100%;
     max-width: 420px;
     padding: 25px;
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
     text-align: center;
     border-top: 5px solid #c9a24d; /* EMAS */
 }
 
+/* LOGO */
 .logo {
     width: 90px;
     margin-bottom: 10px;
 }
 
+/* JUDUL */
 h2 {
-    color: #0a1a2f; /* NAVY */
+    margin: 5px 0;
+    color: #0a1a2f;
 }
 
 .subtitle {
@@ -38,6 +43,7 @@ h2 {
     margin-bottom: 18px;
 }
 
+/* INFO BOX */
 .info-box {
     background: #f5f6f8;
     padding: 15px;
@@ -45,7 +51,7 @@ h2 {
     font-size: 14px;
     text-align: left;
     margin-bottom: 18px;
-    border-left: 4px solid #c9a24d; /* EMAS */
+    border-left: 4px solid #c9a24d;
 }
 
 .info-box ul {
@@ -58,7 +64,7 @@ h2 {
 }
 
 .info-box a {
-    color: #c9a24d; /* EMAS */
+    color: #c9a24d;
     text-decoration: none;
     font-weight: 600;
 }
@@ -67,6 +73,7 @@ h2 {
     text-decoration: underline;
 }
 
+/* FORM */
 .form-group {
     text-align: left;
     margin-bottom: 14px;
@@ -90,10 +97,28 @@ h2 {
     border-color: #c9a24d;
 }
 
+/* BELI VOUCHER */
+.buy-voucher {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.buy-voucher a {
+    color: #c9a24d;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.buy-voucher a:hover {
+    text-decoration: underline;
+}
+
+/* BUTTON */
 .btn-login {
     width: 100%;
     padding: 11px;
-    background: #0a1a2f; /* NAVY */
+    background: #0a1a2f;
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -103,50 +128,10 @@ h2 {
 }
 
 .btn-login:hover {
-    background: #c9a24d; /* EMAS */
+    background: #c9a24d;
     color: #000000;
 }
 
 .btn-reset {
     width: 100%;
     padding: 11px;
-    margin-top: 8px;
-    background: #000000; /* HITAM */
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.btn-reset:hover {
-    background: #333333;
-}
-
-.extra-links {
-    margin-top: 14px;
-    font-size: 13px;
-}
-
-.extra-links a {
-    text-decoration: none;
-    color: #0a1a2f;
-    font-weight: 500;
-}
-
-.extra-links a:hover {
-    color: #c9a24d;
-}
-
-footer {
-    margin-top: 18px;
-    font-size: 12px;
-    color: #777;
-}
-
-/* RESPONSIVE */
-@media (max-width: 480px) {
-    .login-container {
-        margin: 15px;
-        padding: 20px;
-    }
-}
