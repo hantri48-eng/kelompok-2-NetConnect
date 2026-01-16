@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
 <style>
+/* RESET & BASE */
 * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
 
 body {
-    background: #f0f4f8; /* biru sangat muda */
+    background: #f0f4f8; /* soft biru muda */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,67 +23,67 @@ body {
     max-width: 360px;
     padding: 25px 20px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     text-align: center;
 }
 
 .logo { display: block; margin: 0 auto 12px auto; width: 70px; height: auto; }
-h2 { font-size: 22px; color: #0b3d91; margin-bottom: 6px; } /* biru tua */
-.subtitle { font-size: 13px; color: #333; margin-bottom: 18px; line-height: 1.4; }
+h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; } /* biru tua */
+.subtitle { font-size: 13px; color: #555555; margin-bottom: 18px; line-height: 1.4; }
 
 .info-box {
-    background: #e1f0ff; /* biru sangat terang */
+    background: #e3f2fd; /* biru sangat muda */
     padding: 10px 12px;
     border-radius: 6px;
     text-align: left;
     margin-bottom: 18px;
-    border-left: 4px solid #0b3d91;
+    border-left: 4px solid #0d47a1;
 }
-.info-box strong { color:#0b3d91; }
-.info-box a { color:#0b3d91; text-decoration:none; font-weight:600; }
+.info-box strong { color:#0d47a1; }
+.info-box a { color:#1976d2; text-decoration:none; font-weight:600; }
 .info-box a:hover { text-decoration: underline; }
 
 .form-group { margin-bottom: 12px; text-align: left; }
-.form-group label { font-size: 13px; color:#0b3d91; display:block; margin-bottom:3px; }
+.form-group label { font-size: 13px; color:#0d47a1; display:block; margin-bottom:3px; }
 .form-group input {
     width: 100%;
     padding: 8px 10px;
     border-radius: 5px;
-    border: 1px solid #0b3d91;
+    border: 1px solid #0d47a1;
     font-size: 14px;
 }
-.form-group input:focus { border-color: #084080; outline: none; }
+.form-group input:focus { border-color: #1565c0; outline: none; }
 
 .btn-login, .btn-reset { width: 100%; padding: 10px; border-radius: 6px; border: none; font-weight: 600; cursor: pointer; margin-top: 8px; transition:0.3s; font-size: 14px; }
-.btn-login { background:#0b3d91; color:#fff; }
-.btn-login:hover { background:#084080; }
-.btn-reset { background:#ccc; color:#333; }
-.btn-reset:hover { background:#aaa; }
+.btn-login { background:#1976d2; color:#fff; }
+.btn-login:hover { background:#1565c0; }
+.btn-reset { background:#eeeeee; color:#333; }
+.btn-reset:hover { background:#cccccc; }
 
 .lupa-password { display:block; margin-top: 6px; font-size: 12px; text-align:right; }
-.lupa-password a { color:#0b3d91; text-decoration:none; }
+.lupa-password a { color:#1976d2; text-decoration:none; }
 .lupa-password a:hover { text-decoration: underline; }
 
 .voucher-member { display:flex; justify-content:space-between; gap:8px; margin-top:15px; }
 .voucher-member div {
     flex:1;
-    background:#b3d7ff; /* biru muda */
+    background:#bbdefb; /* biru muda */
     text-align:center;
     padding:8px 0;
     border-radius:6px;
     font-weight:600;
-    color:#0b3d91;
+    color:#0d47a1;
     cursor:pointer;
     transition:0.2s;
 }
-.voucher-member div:hover { background:#99c2ff; }
+.voucher-member div:hover { background:#90caf9; }
 
 .reveal-box {
     margin-top:8px;
-    background:#e0e0e0;
+    background:#e3f2fd;
     padding:8px;
     border-radius:5px;
-    color: #0b3d91;
+    color: #0d47a1;
     font-weight:600;
     display:flex;
     justify-content:space-between;
@@ -93,7 +94,7 @@ h2 { font-size: 22px; color: #0b3d91; margin-bottom: 6px; } /* biru tua */
 
 .voucher-table { width: 100%; border-collapse: collapse; margin-top:15px; }
 .voucher-table td { padding: 8px; border: 1px solid #ddd; text-align:center; font-size:13px; }
-.voucher-table tr:hover { background:#0b3d91; color:#fff; cursor:pointer; }
+.voucher-table tr:hover { background:#1976d2; color:#fff; cursor:pointer; }
 
 .footer { font-size:11px; color:#555; margin-top:18px; text-align:center; }
 
