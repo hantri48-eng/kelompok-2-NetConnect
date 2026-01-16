@@ -5,18 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
 <style>
-/* GLOBAL */
 * {
     box-sizing: border-box;
     font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    margin:0; padding:0;
 }
 
 /* BODY */
 body {
-    background: #1e1e1e; /* soft black */
-    color: #f1f1f1;
+    background: linear-gradient(135deg, #2f2f2f, #4a4a4a);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -26,134 +23,130 @@ body {
 
 /* CONTAINER */
 .login-container {
-    background: #2f2f2f; /* soft gray */
-    max-width: 480px;
+    background: #f2f2f2;
     width: 100%;
+    max-width: 450px;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     text-align: center;
-    position: relative;
 }
 
 /* LOGO */
 .logo {
-    width: 100px;
-    margin: 0 auto 15px;
     display: block;
+    margin: 0 auto 15px auto;
+    width: 100px;
+    height: auto;
 }
 
-/* HEADER */
+/* NAMA KELOMPOK */
 h2 {
+    color: #1a1a1a;
+    font-size: 28px;
     margin-bottom: 8px;
-    color: #fff;
-    font-size: 24px;
 }
 
+/* SUBTITLE */
 .subtitle {
-    font-size: 13px;
-    color: #ccc;
+    font-size: 14px;
+    color: #333;
     margin-bottom: 20px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-/* INFO BOX PAYMENT */
+/* INFO BOX PAYMENT GATEWAY */
 .info-box {
-    background: #3a3a3a; /* soft gray */
-    padding: 12px;
+    background: #e1e1e1;
+    padding: 12px 15px;
     border-radius: 8px;
-    font-size: 13px;
     text-align: left;
     margin-bottom: 20px;
-    border-left: 4px solid #f1f1f1;
+    border-left: 4px solid #6b6b6b;
 }
-.info-box strong { color: #fff; }
-.info-box a { color:#f1f1f1; font-weight:600; text-decoration:none; }
-.info-box a:hover { text-decoration:underline; }
+.info-box strong {
+    color:#1a1a1a;
+}
 
-/* FORM */
-.form-group { text-align: left; margin-bottom: 14px; }
-.form-group label { display:block; font-size:13px; margin-bottom:5px; color:#fff; }
+/* FORM GROUP */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.form-group label {
+    font-size: 14px;
+    color:#1a1a1a;
+    display:block;
+    margin-bottom:5px;
+}
 .form-group input {
     width: 100%;
     padding: 10px;
-    border-radius:6px;
-    border:none;
-    background:#444; /* input abu */
-    color:#fff;
+    border-radius: 6px;
+    border: 1px solid #999;
+    font-size: 14px;
 }
-.form-group input:focus { outline:none; background:#555; }
-
-/* LINK LUPA PASSWORD */
-.lupa-pass {
-    display:block;
-    text-align:right;
-    margin-top:5px;
-    font-size:12px;
-}
-.lupa-pass a { color:#f1f1f1; text-decoration:none; }
-.lupa-pass a:hover { text-decoration:underline; }
 
 /* BUTTONS */
 .btn-login, .btn-reset {
-    width:100%;
-    padding:11px;
-    border:none;
-    border-radius:6px;
-    margin-top:10px;
-    font-weight:600;
-    cursor:pointer;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
     transition:0.3s;
 }
-.btn-login { background:#f1f1f1; color:#000; }
-.btn-login:hover { background:#e0e0e0; color:#000; }
-.btn-reset { background:#666; color:#fff; }
-.btn-reset:hover { background:#555; color:#fff; }
+.btn-login { background:#333; color:#fff; }
+.btn-login:hover { background:#555; }
+.btn-reset { background:#777; color:#fff; }
+.btn-reset:hover { background:#999; }
 
-/* VOUCHER TABLE */
-.voucher-table {
-    width:100%;
-    margin-top:20px;
-    border-collapse:collapse;
+/* LINK LUPA PASSWORD */
+.lupa-password {
+    display:block;
+    margin-top: 8px;
+    font-size: 12px;
 }
-.voucher-table td {
-    padding:10px;
-    border:1px solid #555;
-    text-align:center;
-    color:#fff;
-}
-.voucher-table tr:hover {
-    background:#f1f1f1;
-    color:#000;
-    cursor:pointer;
-}
-
-/* BUY BUTTON DI TABEL */
-.buy-voucher-btn {
-    display:inline-block;
-    margin-top:5px;
-    padding:5px 8px;
-    font-size:12px;
-    background:#f1f1f1;
-    color:#000;
-    border-radius:4px;
+.lupa-password a {
+    color:#333;
     text-decoration:none;
 }
-.buy-voucher-btn:hover {
-    background:#e0e0e0;
+.lupa-password a:hover {
+    text-decoration: underline;
+}
+
+/* TABEL VOUCHER */
+.voucher-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.voucher-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align:center;
+}
+.voucher-table tr:hover {
+    background:#999;
+    color:#fff;
 }
 
 /* FOOTER */
-footer {
+.footer {
     font-size:12px;
-    color:#aaa;
-    margin-top:15px;
+    color:#666;
+    margin-top: 25px;
     text-align:center;
 }
 
 /* RESPONSIVE */
 @media(max-width:480px){
-    .login-container { padding:20px; }
+    .login-container{padding:20px;}
+    h2{font-size:24px;}
+    .subtitle{font-size:13px;}
 }
 </style>
 </head>
@@ -162,22 +155,26 @@ footer {
 <div class="login-container">
 
     <!-- LOGO -->
-    <img src="https://hantri48-eng.github.io/kelompok-2-NetConnect/img/logo.png" alt="Logo NetConnect" class="logo">
+    <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
 
-    <!-- NAMA & SUBTITLE -->
+    <!-- NAMA KELOMPOK -->
     <h2>NetConnect 2</h2>
+
+    <!-- SUBTITLE -->
     <p class="subtitle">
         NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.
     </p>
 
     <!-- INFO PAYMENT -->
     <div class="info-box">
-        <p><strong>Payment Gateway:</strong> Dana | OVO | GoPay | QRIS</p>
-        <p><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20ingin%20konfirmasi%20pembayaran" target="_blank">Konfirmasi Pembayaran via WhatsApp</a></p>
+        <p><strong>Payment Gateway:</strong><br>
+        Dana | OVO | GoPay | QRIS</p>
+        <p><strong>CS:</strong> <a href="https://wa.me/6287744797924" target="_blank">+62 877 4479 7924 (WhatsApp)</a><br>
+        Email: <a href="mailto:netconnect2@example.com">netconnect2@example.com</a></p>
     </div>
 
     <!-- FORM LOGIN -->
-    <form class="login-form">
+    <form>
         <div class="form-group">
             <label>Kode Voucher</label>
             <input type="text" placeholder="Masukkan kode voucher" required>
@@ -189,43 +186,36 @@ footer {
         <div class="form-group">
             <label>Password</label>
             <input type="password" placeholder="Masukkan password" required>
-            <span class="lupa-pass"><a href="#">Lupa Password?</a></span>
         </div>
 
         <button type="submit" class="btn-login">Login</button>
         <button type="reset" class="btn-reset">Reset</button>
+        <span class="lupa-password"><a href="#">Lupa Password?</a></span>
+
+        <!-- TABEL 5 PAKET VOUCHER -->
+        <h3 style="margin-top:20px;">Harga Voucher</h3>
+        <table class="voucher-table">
+            <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
+            <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
+            <tr onclick="beliVoucher('3 Jam','7.000')"><td>3 Jam</td><td>Rp 7.000</td></tr>
+            <tr onclick="beliVoucher('6 Jam','12.000')"><td>6 Jam</td><td>Rp 12.000</td></tr>
+            <tr onclick="beliVoucher('1 Hari','15.000')"><td>1 Hari</td><td>Rp 15.000</td></tr>
+        </table>
     </form>
 
-    <!-- TABEL HARGA VOUCHER -->
-    <h3 style="margin-top:20px; color:#fff;">Harga Voucher</h3>
-    <table class="voucher-table">
-        <tr>
-            <td>1 Jam<br><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20beli%20voucher%201%20jam" target="_blank" class="buy-voucher-btn">Beli Voucher</a></td>
-            <td>Rp 3.000</td>
-        </tr>
-        <tr>
-            <td>2 Jam<br><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20beli%20voucher%202%20jam" target="_blank" class="buy-voucher-btn">Beli Voucher</a></td>
-            <td>Rp 5.000</td>
-        </tr>
-        <tr>
-            <td>3 Jam<br><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20beli%20voucher%203%20jam" target="_blank" class="buy-voucher-btn">Beli Voucher</a></td>
-            <td>Rp 7.000</td>
-        </tr>
-        <tr>
-            <td>6 Jam<br><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20beli%20voucher%206%20jam" target="_blank" class="buy-voucher-btn">Beli Voucher</a></td>
-            <td>Rp 12.000</td>
-        </tr>
-        <tr>
-            <td>1 Hari<br><a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20beli%20voucher%201%20hari" target="_blank" class="buy-voucher-btn">Beli Voucher</a></td>
-            <td>Rp 15.000</td>
-        </tr>
-    </table>
-
-    <footer>
+    <div class="footer">
         &copy; 2026 NetConnect 2. All Rights Reserved.
-    </footer>
+    </div>
 
 </div>
+
+<script>
+function beliVoucher(paket, harga) {
+    const waNumber = '6287744797924';
+    const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
+}
+</script>
 
 </body>
 </html>
