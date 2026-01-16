@@ -10,7 +10,7 @@
 
 /* BODY */
 body {
-    background: #f7f7f7; /* putih bersih */
+    background: #f7f7f7;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,27 +30,13 @@ body {
 }
 
 /* LOGO */
-.logo {
-    display: block;
-    margin: 0 auto 12px auto;
-    width: 70px;
-    height: auto;
-}
+.logo { display: block; margin: 0 auto 12px auto; width: 70px; height: auto; }
 
 /* NAMA KELOMPOK */
-h2 {
-    font-size: 22px;
-    color: #1a1a1a;
-    margin-bottom: 6px;
-}
+h2 { font-size: 22px; color: #1a1a1a; margin-bottom: 6px; }
 
 /* SUBTITLE */
-.subtitle {
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 18px;
-    line-height: 1.4;
-}
+.subtitle { font-size: 13px; color: #555; margin-bottom: 18px; line-height: 1.4; }
 
 /* INFO PAYMENT & CS */
 .info-box {
@@ -78,17 +64,7 @@ h2 {
 .form-group input:focus { border-color: #0b3d91; outline: none; }
 
 /* BUTTONS */
-.btn-login, .btn-reset {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 8px;
-    transition:0.3s;
-    font-size: 14px;
-}
+.btn-login, .btn-reset { width: 100%; padding: 10px; border-radius: 6px; border: none; font-weight: 600; cursor: pointer; margin-top: 8px; transition:0.3s; font-size: 14px; }
 .btn-login { background:#0b3d91; color:#fff; }
 .btn-login:hover { background:#084080; }
 .btn-reset { background:#ccc; color:#333; }
@@ -119,71 +95,26 @@ h2 {
 }
 .voucher-member div:hover { background:#b3d7ff; }
 
-/* TABEL VOUCHER */
-.voucher-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top:15px;
-}
-.voucher-table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align:center;
-    font-size:13px;
-}
-.voucher-table tr:hover { background:#0b3d91; color:#fff; cursor:pointer; }
-
-/* FOOTER */
-.footer {
-    font-size:11px;
-    color:#888;
-    margin-top:18px;
-    text-align:center;
-}
-
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    z-index:1000;
-    left:0; top:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.4);
-    justify-content: center;
-    align-items: center;
-}
-.modal-content {
-    background:#fff;
-    padding:15px;
-    border-radius:8px;
-    max-width:280px;
-    width:90%;
-    text-align:center;
-    position: relative;
-    font-size:13px;
-}
-.modal-close {
-    position: absolute;
-    top:5px; right:10px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:16px;
-}
-.modal-body {
+/* REVEAL BOX */
+.reveal-box {
+    margin-top:8px;
+    background:#e0e0e0;
+    padding:8px;
+    border-radius:5px;
+    color: transparent; /* default transparan */
+    font-weight:600;
     display:flex;
     justify-content:space-between;
     gap:8px;
-    margin-top:12px;
 }
-.modal-body div {
-    flex:1;
-    background:#cce5ff;
-    padding:8px;
-    border-radius:5px;
-    font-weight:600;
-    color:#0d1b2a;
-    font-size:13px;
-}
+
+/* TABEL VOUCHER */
+.voucher-table { width: 100%; border-collapse: collapse; margin-top:15px; }
+.voucher-table td { padding: 8px; border: 1px solid #ddd; text-align:center; font-size:13px; }
+.voucher-table tr:hover { background:#0b3d91; color:#fff; cursor:pointer; }
+
+/* FOOTER */
+.footer { font-size:11px; color:#888; margin-top:18px; text-align:center; }
 
 /* RESPONSIVE */
 @media(max-width:400px){
@@ -239,8 +170,17 @@ h2 {
 
         <!-- VOUCHER & MEMBER -->
         <div class="voucher-member">
-            <div onclick="openModal('voucher')">Voucher</div>
-            <div onclick="openModal('member')">Member</div>
+            <div onclick="toggleReveal('voucher-box')">Voucher</div>
+            <div onclick="toggleReveal('member-box')">Member</div>
+        </div>
+
+        <!-- Reveal boxes (default kosong/transparan) -->
+        <div id="voucher-box" class="reveal-box">
+            <div>Kode Voucher</div>
+        </div>
+        <div id="member-box" class="reveal-box">
+            <div>Username</div>
+            <div>Password</div>
         </div>
 
         <!-- TABEL HARGA VOUCHER -->
@@ -261,46 +201,33 @@ h2 {
 
 </div>
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <h3 id="modal-title">Detail</h3>
-        <div class="modal-body" id="modal-body"></div>
-    </div>
-</div>
-
 <script>
-// Fungsi beli voucher via WA CS
+// Beli voucher via WA CS
 function beliVoucher(paket, harga) {
     const waNumber = '6287744797924';
     const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-// Modal functions
-const modal = document.getElementById('modal');
-const modalTitle = document.getElementById('modal-title');
-const modalBody = document.getElementById('modal-body');
-
-function openModal(type) {
-    modal.style.display = 'flex';
-    modalBody.innerHTML = '';
-    if(type === 'voucher'){
-        modalTitle.innerText = 'Kode Voucher';
-        modalBody.innerHTML = `<div style="flex:1">ABCD-1234</div>`;
-    } else if(type === 'member'){
-        modalTitle.innerText = 'Username & Password Member';
-        modalBody.innerHTML = `<div>Username: user123</div><div>Password: pass123</div>`;
+// Toggle reveal boxes
+function toggleReveal(id){
+    const box = document.getElementById(id);
+    if(box.style.color === 'transparent' || box.style.color === ''){
+        if(id==='voucher-box'){
+            box.innerHTML = '<div>ABCD-1234</div>';
+        } else if(id==='member-box'){
+            box.innerHTML = '<div>user123</div><div>pass123</div>';
+        }
+        box.style.color = '#0d1b2a';
+    } else {
+        // hide again
+        if(id==='voucher-box'){
+            box.innerHTML = '<div>Kode Voucher</div>';
+        } else if(id==='member-box'){
+            box.innerHTML = '<div>Username</div><div>Password</div>';
+        }
+        box.style.color = 'transparent';
     }
-}
-
-function closeModal() {
-    modal.style.display = 'none';
-}
-
-window.onclick = function(e){
-    if(e.target === modal) closeModal();
 }
 </script>
 
