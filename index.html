@@ -5,6 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Voucher - Kelompok 2</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling sederhana untuk tampilan rapi */
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f4f4f4; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0;
+            padding: 10px;
+        }
+        .login-container { 
+            background: #fff; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 15px rgba(0,0,0,0.1); 
+            width: 100%; 
+            max-width: 400px; 
+        }
+        .logo { 
+            display: block; 
+            margin: 0 auto 15px; 
+            width: 80px; 
+        }
+        h2 { text-align: center; margin-bottom: 5px; }
+        .subtitle { 
+            text-align: center; 
+            font-size: 14px; 
+            color: #555; 
+            margin-bottom: 20px; 
+            line-height: 1.4;
+        }
+        .subtitle span { font-size:12px; opacity:0.8; }
+        .info-box { 
+            background: #e9ecef; 
+            padding: 10px; 
+            border-radius: 5px; 
+            margin-bottom: 20px; 
+            font-size: 14px; 
+        }
+        .info-box ul { padding-left: 20px; margin: 0 0 10px 0; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input { width: 100%; padding: 8px; box-sizing: border-box; border-radius: 5px; border: 1px solid #ccc; }
+        .buy-voucher { display: block; margin-top: 5px; font-size: 12px; }
+        .btn-login, .btn-reset { width: 48%; padding: 10px; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer; }
+        .btn-login { background: #007bff; color: #fff; }
+        .btn-reset { background: #6c757d; color: #fff; }
+        .voucher-table { width: 100%; border-collapse: collapse; margin-top: 10px; cursor: pointer; }
+        .voucher-table td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+        .voucher-table tr:hover { background: #007bff; color: #fff; }
+        @media (max-width: 480px){
+            .btn-login, .btn-reset { width: 100%; margin-bottom: 10px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -13,11 +69,18 @@
     <!-- LOGO -->
     <img src="img/logo.png" alt="Logo Kelompok 2" class="logo">
 
-    <!-- JUDUL -->
+    <!-- JUDUL DAN SUBTITLE -->
     <h2>Kelompok 2</h2>
-    <p class="subtitle">Layanan Login Voucher Internet</p>
 
-    <!-- INFO -->
+    <p class="subtitle">
+        Platform Manajemen Akses Internet Berbasis Voucher<br>
+        Dirancang untuk Mendukung Koneksi Jaringan yang Optimal dan Aman<br>
+        <span>
+            Produktif boleh, kewajiban jangan lupa — sholat tetap utama 🤲
+        </span>
+    </p>
+
+    <!-- INFO VOUCHER -->
     <div class="info-box">
         <p><strong>Paket Voucher:</strong></p>
         <ul>
@@ -25,7 +88,6 @@
             <li>3 Jam – Rp 7.000</li>
             <li>1 Hari – Rp 15.000</li>
         </ul>
-
         <p><strong>Payment Gateway:</strong><br>
             Dana | OVO | GoPay | QRIS
         </p>
@@ -34,15 +96,12 @@
     <!-- FORM LOGIN -->
     <form class="login-form">
 
-        <!-- KODE VOUCHER -->
         <div class="form-group">
             <label>Kode Voucher</label>
             <input type="text" placeholder="Masukkan kode voucher" required>
-
             <small class="buy-voucher">
                 Belum punya voucher?
-                <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20beli%20voucher%20internet"
-                   target="_blank">
+                <a href="https://wa.me/6287744797924?text=Halo%20CS,%20saya%20mau%20beli%20voucher%20internet" target="_blank">
                     Beli Voucher
                 </a>
             </small>
@@ -62,7 +121,7 @@
         <button type="reset" class="btn-reset">Reset</button>
     </form>
 
-    <!-- HARGA VOUCHER (KLIK LANGSUNG KE WA) -->
+    <!-- HARGA VOUCHER -->
     <h3 class="harga-title">Harga Voucher</h3>
 
     <table class="voucher-table">
@@ -70,3 +129,25 @@
             <td>1 Jam</td>
             <td>Rp 3.000</td>
         </tr>
+        <tr onclick="beliVoucher('3 Jam','7000')">
+            <td>3 Jam</td>
+            <td>Rp 7.000</td>
+        </tr>
+        <tr onclick="beliVoucher('1 Hari','15000')">
+            <td>1 Hari</td>
+            <td>Rp 15.000</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    function beliVoucher(paket, harga) {
+        const waNumber = '6287744797924';
+        const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
+        window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
