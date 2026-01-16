@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
 <style>
+/* RESET & BASE */
 * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; margin:0; padding:0; }
 
 /* BODY */
 body {
-    background: #f0f4f8;
+    background: #2c2c2c; /* abu gelap soft */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,92 +20,143 @@ body {
 
 /* LOGIN CONTAINER */
 .login-container {
-    background: #ffffff;
+    background: #f5f5f5; /* abu soft / putih */
     width: 100%;
     max-width: 450px;
-    padding: 25px 20px;
+    padding: 30px 25px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 /* LOGO */
-.logo { display: block; margin: 0 auto 12px auto; width: 80px; height: auto; }
+.logo {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 80px;
+    height: auto;
+}
 
 /* NAMA KELOMPOK */
-h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
-
-/* SUBTITLE ANIMASI */
-.subtitle-wrapper { overflow:hidden; width:100%; margin-bottom: 18px; border-radius:6px; background:#e3f2fd; }
-.subtitle-animate {
-    display:inline-block;
-    white-space:nowrap;
-    padding-left:100%;
-    animation: slideText 12s linear infinite;
-    color: #0d47a1;
-    font-size: 13px;
-    line-height: 1.4;
+h2 {
+    font-size: 26px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
 }
-@keyframes slideText { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+
+/* SUBTITLE */
+.subtitle {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
 
 /* INFO PAYMENT & CS */
 .info-box {
-    background: #e3f2fd;
-    padding: 12px;
-    border-radius: 6px;
+    background: #e8e8e8;
+    padding: 12px 15px;
+    border-radius: 8px;
     text-align: left;
-    margin-bottom: 18px;
-    border-left: 4px solid #0d47a1;
+    margin-bottom: 20px;
+    border-left: 4px solid #333;
 }
-.info-box strong { color:#0d47a1; }
+.info-box strong { color:#1a1a1a; }
 .info-box a { color:#1976d2; text-decoration:none; font-weight:600; }
 .info-box a:hover { text-decoration: underline; }
 
 /* PILIH VOUCHER / MEMBER */
-.select-boxes { display:flex; gap:10px; margin-bottom:15px; }
-.select-box { flex:1; padding:12px; border-radius:6px; background:#bbdefb; color:#0d47a1; font-weight:600; cursor:pointer; text-align:center; transition:0.3s; }
-.select-box.active { background:#90caf9; }
-.select-box:hover { background:#90caf9; }
+.select-boxes { display: flex; gap:10px; margin-bottom:15px; justify-content:center; }
+.select-box {
+    flex:1;
+    padding:12px;
+    border-radius:6px;
+    background:#d0d0d0;
+    color:#1a1a1a;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    text-align:center;
+}
+.select-box:hover { background:#b0b0b0; }
 
-/* FORM LOGIN */
-.form-login { margin-top:15px; text-align:left; }
-.form-group { margin-bottom: 12px; }
-.form-group label { font-size: 14px; color:#0d47a1; display:block; margin-bottom:5px; }
-.form-group input { width:100%; padding:10px; border-radius:6px; border:1px solid #999; font-size:14px; transition:0.3s; }
+/* AREA TAMPILAN KODE / MEMBER */
+.display-area {
+    margin-top:10px;
+}
+.display-area .voucher-code,
+.display-area .member-box {
+    background:#f0f0f0;
+    border-radius:6px;
+    padding:12px;
+    margin-top:8px;
+    display:none;
+}
+.member-box { display:flex; gap:10px; }
+.member-box div { flex:1; background:#f0f0f0; padding:10px; border-radius:5px; text-align:center; }
+
+/* FORM INPUT */
+.form-group { margin-bottom:15px; text-align:left; }
+.form-group label { font-size:14px; color:#1a1a1a; margin-bottom:5px; display:block; }
+.form-group input {
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #999;
+    font-size:14px;
+    transition: border 0.3s;
+}
 .form-group input:focus { border-color:#555; outline:none; }
 
 /* BUTTONS */
-.btn-login, .btn-reset { width:100%; padding:12px; border-radius:6px; border:none; font-weight:600; cursor:pointer; margin-top:10px; transition:0.3s; }
-.btn-login { background:#0d47a1; color:#fff; }
-.btn-login:hover { background:#1565c0; }
+.btn-login, .btn-reset {
+    width:100%;
+    padding:12px;
+    border-radius:6px;
+    border:none;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
+}
+.btn-login { background:#333; color:#fff; }
+.btn-login:hover { background:#555; }
 .btn-reset { background:#777; color:#fff; }
 .btn-reset:hover { background:#999; }
 
 /* LUPA PASSWORD */
 .lupa-password { display:block; margin-top:8px; font-size:12px; text-align:right; }
-.lupa-password a { color:#0d47a1; text-decoration:none; }
+.lupa-password a { color:#333; text-decoration:none; }
 .lupa-password a:hover { text-decoration: underline; }
 
 /* TABEL HARGA VOUCHER */
 .voucher-table { width:100%; border-collapse:collapse; margin-top:15px; font-size:13px; }
-.voucher-table th { background:#bbdefb; text-align:left; padding:8px; }
+.voucher-table th { background:#d0d0d0; text-align:left; padding:8px; }
 .voucher-table td { padding:8px; border-bottom:1px solid #ccc; }
-.voucher-table tr:hover { background:#e3f2fd; }
-.buy-btn { background-color:#1976d2; color:#fff; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-weight:600; transition:0.3s; }
-.buy-btn:hover { background-color:#1565c0; }
+.voucher-table tr:hover { background:#b0b0b0; }
+.buy-btn {
+    background-color:#333;
+    color:#fff;
+    border:none;
+    padding:6px 12px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+.buy-btn:hover { background-color:#555; }
 
 /* FOOTER */
-.footer { font-size:11px; color:#555; margin-top:18px; text-align:center; }
+.footer { font-size:11px; color:#555; margin-top:20px; text-align:center; }
 
 /* RESPONSIVE */
-@media(max-width:420px){
+@media(max-width:480px){
     .login-container{padding:20px;}
-    h2{font-size:20px;}
-    .subtitle-animate{font-size:12px;}
-    .select-boxes .select-box{padding:10px; font-size:13px;}
-    .form-group input{padding:8px; font-size:13px;}
-    .voucher-table td, .voucher-table th{padding:6px;}
+    h2{font-size:22px;}
+    .subtitle{font-size:13px;}
     .btn-login, .btn-reset{padding:10px;}
+    .voucher-table td, .voucher-table th{padding:6px;}
 }
 </style>
 </head>
@@ -115,12 +167,11 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
     <!-- LOGO -->
     <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
 
+    <!-- NAMA KELOMPOK -->
     <h2>NetConnect 2</h2>
 
-    <!-- Subtitle -->
-    <div class="subtitle-wrapper">
-        <p class="subtitle-animate">NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.</p>
-    </div>
+    <!-- SUBTITLE -->
+    <p class="subtitle">NetConnect menyediakan layanan akses internet berbasis voucher dengan koneksi cepat, stabil, dan aman.</p>
 
     <!-- INFO PAYMENT & CS -->
     <div class="info-box">
@@ -130,72 +181,87 @@ h2 { font-size: 22px; color: #0d47a1; margin-bottom: 6px; }
         </p>
     </div>
 
-    <!-- Pilih Voucher / Member -->
+    <!-- PILIH VOUCHER / MEMBER -->
     <div class="select-boxes">
-        <div class="select-box active" id="tabVoucher" onclick="showTab('voucher')">Voucher</div>
-        <div class="select-box" id="tabMember" onclick="showTab('member')">Member</div>
+        <div class="select-box" onclick="showVoucher()">Voucher</div>
+        <div class="select-box" onclick="showMember()">Member</div>
     </div>
 
-    <!-- FORM LOGIN -->
-    <form class="form-login" id="formLogin">
-        <!-- Voucher Tab -->
-        <div id="voucherFields">
+    <!-- AREA TAMPILAN INPUT -->
+    <div class="display-area">
+        <div class="voucher-code" id="voucherCode">
             <div class="form-group">
                 <label>Kode Voucher</label>
-                <input type="text" placeholder="Masukkan kode voucher" required>
+                <input type="text" placeholder="Masukkan kode voucher">
             </div>
         </div>
-        <!-- Member Tab -->
-        <div id="memberFields" style="display:none;">
+        <div class="member-box" id="memberBox">
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" placeholder="Masukkan username" required>
+                <input type="text" placeholder="Masukkan username">
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" placeholder="Masukkan password" required>
+                <input type="password" placeholder="Masukkan password">
             </div>
         </div>
+    </div>
 
-        <button type="submit" class="btn-login">Login</button>
-        <button type="reset" class="btn-reset">Reset</button>
-        <span class="lupa-password"><a href="#">Lupa Password?</a></span>
-    </form>
+    <!-- TOMBOL LOGIN / RESET / LUPA PASSWORD -->
+    <button class="btn-login">Login</button>
+    <button class="btn-reset">Reset</button>
+    <span class="lupa-password"><a href="#">Lupa Password?</a></span>
 
     <!-- TABEL HARGA VOUCHER -->
-    <h3 style="margin-top:15px;">Harga Voucher</h3>
+    <h3 style="margin-top:20px;">Harga Voucher</h3>
     <table class="voucher-table">
-        <tr><th>Durasi</th><th>Harga</th><th>Aksi</th></tr>
-        <tr><td>1 Jam</td><td>Rp 3.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Jam','3.000')">Beli Voucher</button></td></tr>
-        <tr><td>2 Jam</td><td>Rp 5.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('2 Jam','5.000')">Beli Voucher</button></td></tr>
-        <tr><td>3 Jam</td><td>Rp 7.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('3 Jam','7.000')">Beli Voucher</button></td></tr>
-        <tr><td>6 Jam</td><td>Rp 12.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('6 Jam','12.000')">Beli Voucher</button></td></tr>
-        <tr><td>1 Hari</td><td>Rp 15.000</td><td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Hari','15.000')">Beli Voucher</button></td></tr>
+        <tr>
+            <th>Durasi</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>1 Jam</td>
+            <td>Rp 3.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Jam','3.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>2 Jam</td>
+            <td>Rp 5.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('2 Jam','5.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>3 Jam</td>
+            <td>Rp 7.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('3 Jam','7.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>6 Jam</td>
+            <td>Rp 12.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('6 Jam','12.000')">Beli Voucher</button></td>
+        </tr>
+        <tr>
+            <td>1 Hari</td>
+            <td>Rp 15.000</td>
+            <td style="text-align:center;"><button class="buy-btn" onclick="beliVoucher('1 Hari','15.000')">Beli Voucher</button></td>
+        </tr>
     </table>
 
-    <div class="footer">&copy; 2026 NetConnect 2. All Rights Reserved.</div>
+    <div class="footer">
+        &copy; 2026 NetConnect 2. All Rights Reserved.
+    </div>
+
 </div>
 
 <script>
-function showTab(tab){
-    const voucherFields = document.getElementById('voucherFields');
-    const memberFields = document.getElementById('memberFields');
-    const tabVoucher = document.getElementById('tabVoucher');
-    const tabMember = document.getElementById('tabMember');
-
-    if(tab === 'voucher'){
-        voucherFields.style.display = 'block';
-        memberFields.style.display = 'none';
-        tabVoucher.classList.add('active');
-        tabMember.classList.remove('active');
-    } else {
-        voucherFields.style.display = 'none';
-        memberFields.style.display = 'block';
-        tabVoucher.classList.remove('active');
-        tabMember.classList.add('active');
-    }
+function showVoucher() {
+    document.getElementById("voucherCode").style.display = "block";
+    document.getElementById("memberBox").style.display = "none";
 }
-
+function showMember() {
+    document.getElementById("voucherCode").style.display = "none";
+    document.getElementById("memberBox").style.display = "flex";
+}
 function beliVoucher(durasi, harga){
     const waNumber = '6287744797924';
     const message = `Halo CS, saya mau beli voucher ${durasi} seharga Rp ${harga}`;
