@@ -137,7 +137,7 @@ h2 {
 .voucher-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 20px;
     cursor: pointer;
 }
 .voucher-table td {
@@ -203,44 +203,19 @@ h2 {
             <input type="password" placeholder="Masukkan password" required>
         </div>
 
+        <!-- TOMBOL LOGIN & RESET -->
         <button type="submit" class="btn-login">Login</button>
         <button type="reset" class="btn-reset">Reset</button>
-    </form>
 
-    <!-- TABEL VOUCHER 5 PAKET -->
-    <h3 class="harga-title">Harga Voucher</h3>
-    <table class="voucher-table">
-        <tr onclick="beliVoucher('1 Jam','3.000')">
-            <td>1 Jam</td>
-            <td>Rp 3.000</td>
-        </tr>
-        <tr onclick="beliVoucher('2 Jam','5.000')">
-            <td>2 Jam</td>
-            <td>Rp 5.000</td>
-        </tr>
-        <tr onclick="beliVoucher('3 Jam','7.000')">
-            <td>3 Jam</td>
-            <td>Rp 7.000</td>
-        </tr>
-        <tr onclick="beliVoucher('6 Jam','12.000')">
-            <td>6 Jam</td>
-            <td>Rp 12.000</td>
-        </tr>
-        <tr onclick="beliVoucher('1 Hari','15.000')">
-            <td>1 Hari</td>
-            <td>Rp 15.000</td>
-        </tr>
-    </table>
-
-</div>
-
-<script>
-function beliVoucher(paket, harga) {
-    const waNumber = '6287744797924';
-    const message = `Halo CS, saya mau beli voucher ${paket} seharga Rp ${harga}`;
-    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
-}
-</script>
-
-</body>
-</html>
+        <!-- TABEL VOUCHER DI BAWAH RESET -->
+        <h3 class="harga-title">Harga Voucher</h3>
+        <table class="voucher-table">
+            <tr onclick="beliVoucher('1 Jam','3.000')">
+                <td>1 Jam</td>
+                <td>Rp 3.000</td>
+            </tr>
+            <tr onclick="beliVoucher('2 Jam','5.000')">
+                <td>2 Jam</td>
+                <td>Rp 5.000</td>
+            </tr>
+            <tr onclick="
