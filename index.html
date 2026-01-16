@@ -5,6 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Voucher - NetConnect 2</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* Modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left:0; top:0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+/* Close button */
+.modal-close {
+    position: absolute;
+    top:10px; right:15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Voucher / Member display inside modal */
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+.modal-body div {
+    flex:1;
+    background:#cce5ff;
+    padding: 12px;
+    border-radius:8px;
+    color:#0d1b2a;
+    font-weight:600;
+}
+</style>
 </head>
 <body>
 
@@ -51,15 +100,15 @@
 
         <!-- VOUCHER & MEMBER -->
         <div style="display:flex; justify-content:space-between; gap:10px; margin-top:20px;">
-            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="showVoucher()">
+            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="openModal('voucher')">
                 Voucher
             </div>
-            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="showMember()">
+            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="openModal('member')">
                 Member
             </div>
         </div>
 
-        <!-- TABEL HARGA VOUCHER -->
+        <!-- TABEL 5 PAKET VOUCHER -->
         <h3 style="margin-top:20px;">Harga Voucher</h3>
         <table class="voucher-table">
             <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
@@ -77,6 +126,17 @@
 
 </div>
 
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title">Detail</h3>
+        <div class="modal-body" id="modal-body">
+            <!-- Content dinamis -->
+        </div>
+    </div>
+</div>
+
 <script>
 // Fungsi beli voucher via WA CS
 function beliVoucher(paket, harga) {
@@ -85,14 +145,30 @@ function beliVoucher(paket, harga) {
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-// Fungsi tampilkan kode voucher
-function showVoucher() {
-    alert("Kode Voucher: ABCD-1234");
+// Modal functions
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal-title');
+const modalBody = document.getElementById('modal-body');
+
+function openModal(type) {
+    modal.style.display = 'flex';
+    modalBody.innerHTML = '';
+    if(type === 'voucher'){
+        modalTitle.innerText = 'Kode Voucher';
+        modalBody.innerHTML = `<div style="flex:1">ABCD-1234</div>`;
+    } else if(type === 'member'){
+        modalTitle.innerText = 'Username & Password Member';
+        modalBody.innerHTML = `<div>Username: user123</div><div>Password: pass123</div>`;
+    }
 }
 
-// Fungsi tampilkan username/password member
-function showMember() {
-    alert("Username / Password Member: user123 / pass123");
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+// Close modal when click outside content
+window.onclick = function(e){
+    if(e.target === modal) closeModal();
 }
 </script>
 
