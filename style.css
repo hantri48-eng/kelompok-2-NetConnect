@@ -1,34 +1,42 @@
-* {
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Voucher - Kelompok 2</title>
+<style>
+* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
 
 /* BACKGROUND */
 body {
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0a1a2f, #1c2f4a); /* NAVY */
+    background: linear-gradient(135deg, #0a1a2f, #1c2f4a);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 /* CONTAINER */
 .login-container {
-    background: #ffffff; /* PUTIH */
+    background: #ffffff;
     width: 100%;
     max-width: 420px;
     padding: 25px;
     border-radius: 14px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
     text-align: center;
-    border-top: 5px solid #c9a24d; /* EMAS */
+    border-top: 5px solid #c9a24d;
 }
 
 /* LOGO */
 .logo {
     width: 90px;
     margin-bottom: 10px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 /* JUDUL */
@@ -37,17 +45,27 @@ h2 {
     color: #0a1a2f;
 }
 
+/* SUBTITLE TYPING */
 .subtitle {
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 18px;
-    line-height: 1.4;
+    overflow: hidden;
+    border-right: .15em solid #c9a24d;
+    white-space: nowrap;
+    width: 0;
+    font-size:14px;
+    color:#333;
+    margin-bottom:20px;
+    line-height:1.5;
+    animation: typing 4s steps(80,end) forwards, blinkCaret 0.75s step-end infinite;
 }
 
 .subtitle span {
-    font-size: 12px;
-    opacity: 0.8;
+    font-size:12px;
+    color:#555;
+    font-style:italic;
 }
+
+@keyframes typing { from { width:0; } to { width:100%; } }
+@keyframes blinkCaret { 50% { border-color:transparent; } }
 
 /* INFO BOX */
 .info-box {
@@ -59,37 +77,11 @@ h2 {
     margin-bottom: 18px;
     border-left: 4px solid #c9a24d;
 }
-
-.info-box ul {
-    padding-left: 18px;
-    margin: 6px 0;
-}
-
-.info-box strong {
-    color: #0a1a2f;
-}
-
-.info-box a {
-    color: #c9a24d;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.info-box a:hover {
-    text-decoration: underline;
-}
+.info-box strong { color: #0a1a2f; }
 
 /* FORM */
-.form-group {
-    text-align: left;
-    margin-bottom: 14px;
-}
-
-.form-group label {
-    font-size: 14px;
-    color: #0a1a2f;
-}
-
+.form-group { text-align: left; margin-bottom: 14px; }
+.form-group label { font-size: 14px; color: #0a1a2f; }
 .form-group input {
     width: 100%;
     padding: 10px;
@@ -97,65 +89,28 @@ h2 {
     border-radius: 6px;
     border: 1px solid #ccc;
 }
+.form-group input:focus { outline: none; border-color: #c9a24d; }
 
-.form-group input:focus {
-    outline: none;
-    border-color: #c9a24d;
-}
-
-/* BELI VOUCHER */
-.buy-voucher {
-    display: block;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.buy-voucher a {
-    color: #c9a24d;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.buy-voucher a:hover {
-    text-decoration: underline;
-}
+/* BELI VOUCHER LINK */
+.buy-voucher { display:block; margin-top:6px; font-size:12px; }
+.buy-voucher a { color:#c9a24d; font-weight:600; text-decoration:none; }
+.buy-voucher a:hover { text-decoration:underline; }
 
 /* BUTTONS */
-.btn-login {
+.btn-login, .btn-reset {
     width: 100%;
     padding: 11px;
-    background: #0a1a2f;
-    color: #ffffff;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     margin-top: 10px;
     font-weight: 600;
-    transition: 0.3s;
+    transition:0.3s;
 }
-
-.btn-login:hover {
-    background: #c9a24d;
-    color: #000000;
-}
-
-.btn-reset {
-    width: 100%;
-    padding: 11px;
-    background: #6c757d;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-reset:hover {
-    background: #495057;
-    color: #ffffff;
-}
+.btn-login { background: #0a1a2f; color: #fff; }
+.btn-login:hover { background: #c9a24d; color: #000; }
+.btn-reset { background: #6c757d; color: #fff; }
+.btn-reset:hover { background: #495057; color: #fff; }
 
 /* TABLE VOUCHER */
 .voucher-table {
@@ -164,22 +119,24 @@ h2 {
     margin-top: 15px;
     cursor: pointer;
 }
-
 .voucher-table td {
     padding: 10px;
     border: 1px solid #ccc;
-    text-align: center;
+    text-align:center;
 }
-
 .voucher-table tr:hover {
     background: #c9a24d;
-    color: #000;
+    color:#000;
 }
 
 /* RESPONSIVE */
-@media (max-width: 480px) {
-    .btn-login, .btn-reset {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+@media (max-width:480px) {
+    .btn-login,.btn-reset{ width:100%; margin-bottom:10px; }
 }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+
+    <!-- LOGO -->
