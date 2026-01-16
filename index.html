@@ -6,52 +6,80 @@
 <title>Login Voucher - NetConnect 2</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* Modal overlay */
+/* Compact modal overlay */
 .modal {
     display: none;
     position: fixed;
     z-index: 1000;
     left:0; top:0;
     width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.4);
     justify-content: center;
     align-items: center;
 }
 
-/* Modal content */
+/* Compact modal content */
 .modal-content {
     background: #f2f2f2;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 300px;
     width: 90%;
     text-align: center;
     position: relative;
+    font-size:14px;
 }
 
 /* Close button */
 .modal-close {
     position: absolute;
-    top:10px; right:15px;
+    top:5px; right:10px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Voucher / Member display inside modal */
 .modal-body {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 8px;
+    margin-top: 15px;
 }
 .modal-body div {
     flex:1;
     background:#cce5ff;
-    padding: 12px;
-    border-radius:8px;
+    padding: 10px;
+    border-radius:6px;
     color:#0d1b2a;
     font-weight:600;
+    font-size:13px;
+}
+
+/* Compact login container */
+.login-container {
+    max-width: 360px;
+    padding: 20px;
+}
+
+/* Voucher & Member buttons compact */
+.login-container div[onclick] {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Tabel voucher compact */
+.voucher-table td {
+    padding: 8px;
+    font-size:13px;
+}
+
+/* Responsive */
+@media(max-width:480px){
+    .login-container{padding:15px;}
+    h2{font-size:22px;}
+    .subtitle{font-size:12px;}
+    .btn-login, .btn-reset{padding:10px; font-size:14px;}
 }
 </style>
 </head>
@@ -60,7 +88,7 @@
 <div class="login-container">
 
     <!-- LOGO -->
-    <img src="img/logo.png" alt="Logo NetConnect 2" class="logo">
+    <img src="img/logo.png" alt="Logo NetConnect 2" class="logo" style="width:80px;">
 
     <!-- NAMA KELOMPOK -->
     <h2>NetConnect 2</h2>
@@ -99,17 +127,13 @@
         <span class="lupa-password"><a href="#">Lupa Password?</a></span>
 
         <!-- VOUCHER & MEMBER -->
-        <div style="display:flex; justify-content:space-between; gap:10px; margin-top:20px;">
-            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="openModal('voucher')">
-                Voucher
-            </div>
-            <div style="flex:1; background:#cce5ff; text-align:center; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0d1b2a;" onclick="openModal('member')">
-                Member
-            </div>
+        <div style="display:flex; justify-content:space-between; gap:8px; margin-top:15px;">
+            <div onclick="openModal('voucher')">Voucher</div>
+            <div onclick="openModal('member')">Member</div>
         </div>
 
-        <!-- TABEL 5 PAKET VOUCHER -->
-        <h3 style="margin-top:20px;">Harga Voucher</h3>
+        <!-- TABEL HARGA VOUCHER -->
+        <h3 style="margin-top:15px;">Harga Voucher</h3>
         <table class="voucher-table">
             <tr onclick="beliVoucher('1 Jam','3.000')"><td>1 Jam</td><td>Rp 3.000</td></tr>
             <tr onclick="beliVoucher('2 Jam','5.000')"><td>2 Jam</td><td>Rp 5.000</td></tr>
@@ -131,9 +155,7 @@
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <h3 id="modal-title">Detail</h3>
-        <div class="modal-body" id="modal-body">
-            <!-- Content dinamis -->
-        </div>
+        <div class="modal-body" id="modal-body"></div>
     </div>
 </div>
 
